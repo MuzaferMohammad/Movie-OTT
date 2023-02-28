@@ -7,25 +7,12 @@ interface ButtonProps {
   color?: string;
   value?: string;
   label: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Button = ({
-  backgroundColor,
-  label,
-  color,
-  value,
-  className,
-  ...props
-}: ButtonProps) => {
+export const Button = ({ label, className }: ButtonProps) => {
   return (
-    <button
-      className={className}
-      type="button"
-      style={{ backgroundColor, color }}
-      // disabled={!value}
-      {...props}
-    >
+    <button className={className} type="button">
       {label}
     </button>
   );
