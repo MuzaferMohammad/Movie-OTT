@@ -9,7 +9,7 @@ interface InputTextFieldInterface {
   inputText?: string;
   handleText?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  error?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
 }
 
 export const InputTextField = ({

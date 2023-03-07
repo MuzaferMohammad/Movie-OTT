@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { InputTextField } from '../InputTextField/InputTextField';
 import './Signup.css';
@@ -8,32 +10,90 @@ const SignUp = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
+  const [passwordMatch, setPasswordMatch] = React.useState('');
+  const navigate = useNavigate();
 
   const handleName = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
+    const regexForFullName = /^[A-Za-z\s]*$/;
+    if (
+      event.target.value === '' ||
+      regexForFullName.test(event.target.value)
+    ) {
+      setName(event.target.value);
+    }
   };
 
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
+    const regexForEmail = /^[a-z]/;
+    if (event.target.value === '' || regexForEmail.test(event.target.value)) {
+      setEmail(event.target.value);
+    }
   };
 
   const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
+    const regexForPassword = /[a-z]/;
+    if (
+      event.target.value === '' ||
+      regexForPassword.test(event.target.value)
+    ) {
+      setPassword(event.target.value);
+    }
   };
 
   const handleConfirmPassword = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setConfirmPassword(event.target.value);
+    const regexForConfirmPassword = /[a-z]/;
+    if (
+      event.target.value === '' ||
+      regexForConfirmPassword.test(event.target.value)
+    ) {
+      setConfirmPassword(event.target.value);
+    }
   };
 
-  const handleRegister = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    alert('Registered');
+  const handleRegister = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (!name && !email && !password) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
     if (password !== confirmPassword) {
-      console.log('Passwords do not match');
-    } else {
-      console.log(name, email, password);
+      setPasswordMatch('Password does not match');
+      return;
+    }
+
+    const response = await fetch(
+      'https://sea-turtle-app-ccc3d.ondigitalocean.app/api/auth/local/register',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify({
+          username: name,
+          password,
+          email,
+        }),
+      },
+    );
+
+    const data = await response.json();
+    console.log(data);
+
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (!name || !email || !password) {
+      alert(data.error.message);
+      return;
+    }
+
+    if (response.ok) {
+      alert('Registered successfully');
+      navigate('/');
     }
   };
 
@@ -41,13 +101,14 @@ const SignUp = () => {
     <div className="input-section">
       <h1>Movie OTT</h1>
       <div className="inputText-container">
-        <>Register</>
+        <h1>Register</h1>
         <InputTextField
           label="Full Name"
           inputText={name}
           handleText={handleName}
           placeholder="Full Name"
           className="inputtext-data"
+          type="text"
         />
 
         <InputTextField
@@ -56,6 +117,7 @@ const SignUp = () => {
           handleText={handleEmail}
           placeholder="Email"
           className="inputtext-data"
+          type="text"
         />
 
         <InputTextField
@@ -64,6 +126,7 @@ const SignUp = () => {
           handleText={handlePassword}
           placeholder="Password"
           className="inputtext-data"
+          type="password"
         />
 
         <InputTextField
@@ -72,6 +135,8 @@ const SignUp = () => {
           handleText={handleConfirmPassword}
           placeholder="Confirm Password"
           className="inputtext-data"
+          type="password"
+          error={passwordMatch}
         />
 
         <div className="register-btn">
