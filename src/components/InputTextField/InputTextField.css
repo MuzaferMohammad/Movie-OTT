@@ -56,4 +56,6 @@
   .errorClasses input:focus {
     border-color: var(--error);
   } */
-  
+  .error-message{
+    color: red;
+  }

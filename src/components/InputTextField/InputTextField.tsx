@@ -9,7 +9,7 @@ interface InputTextFieldInterface {
   inputText?: string;
   handleText?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  error?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
 }
 
 export const InputTextField = ({
@@ -34,6 +34,7 @@ export const InputTextField = ({
         placeholder={placeholder}
         autoComplete="off"
       />
+      <div className="error-message">{error}</div>
     </div>
   );
 };
