@@ -26,5 +26,6 @@
   color: white;
 } */
 
-/* .App-container {
-} */
+.App-container {
+  width: 100vw;
+}

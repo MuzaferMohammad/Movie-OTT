@@ -1,0 +1,226 @@
+.homepage-container {
+  background: #10141e;
+  background-size: 100%;
+  width: 100%;
+  padding: 2% 3% 2% 2%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* .navigation-bar-home {
+  
+  } */
+
+.main-page-container {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.search-bar-container-home {
+  width: 100%;
+  margin-top: 2%;
+  margin-left: 3%;
+}
+
+.trending-text {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 60px;
+  color: #ffffff;
+}
+
+.movie-box {
+  display: flex;
+  box-sizing: border-box;
+  width: 80px;
+  height: 32px;
+  border: 2px solid #f0e6e6;
+  border-radius: 8px;
+  justify-content: center;
+}
+
+.movie-box p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.trending-container {
+  display: flex;
+  gap: 16px;
+  position: absolute;
+  top: 18%;
+  left: 11%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.movie-tray-container {
+  top: 27%;
+  position: absolute;
+  left: 11%;
+  width: 80%;
+}
+
+.popular-moviecard-container {
+  position: absolute;
+  top: 570px;
+  left: 11%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.popular-movie-container {
+  display: flex;
+  gap: 16px;
+  position: absolute;
+  top: 63%;
+  left: 11%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 420px) {
+  .homepage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .main-page-container {
+    display: flex;
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 100%;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search-bar-container-home {
+    margin-top: 2%;
+    margin-left: 3%;
+    display: flex;
+    margin: 0;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-button-container {
+    display: none;
+  }
+
+  .search-bar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .search-bar-container img{
+    width: 22px;
+    height: 22px;
+  }
+
+  .input-field-search-bar {
+    margin: 0;
+    width: 100%;
+  }
+
+  .search-input {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    width: 100vw;
+    padding: 1.5% 1% 0.3% 3%;
+  }
+
+  .search-input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .trending-text {
+    font-weight: 400;
+    font-size: 28px;
+    color: #ffffff;
+  }
+
+  .movie-box {
+    display: flex;
+    box-sizing: border-box;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #f0e6e6;
+    border-radius: 4px;
+    justify-content: center;
+  }
+
+  .movie-box p {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.07em;
+    color: #ffffff;
+  }
+
+  .trending-container {
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .movie-tray-container {
+    top: 15%;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+  }
+
+  .popular-moviecard-container {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    display: none;
+    grid-gap: 20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .popular-movie-container {
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    top: 48%;
+    left: 5%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

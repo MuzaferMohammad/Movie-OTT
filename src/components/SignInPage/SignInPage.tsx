@@ -1,48 +1,76 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '../Button/Button';
 import { InputTextField } from '../InputTextField/InputTextField';
 import { useNavigate } from 'react-router-dom';
 import './SignInPage.css';
 
-interface SignInPageInterface {
-  label?: string;
-  email?: string;
-  password?: string;
-  handleEmailInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handlePasswordInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-}
+// interface SignInPageInterface {
+//   label?: string;
+//   email?: string;
+//   password?: string;
+//   handleEmailInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+//   handlePasswordInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+//   placeholder?: string;
+// }
 
-export const SignInPage = ({ label, placeholder }: SignInPageInterface) => {
+export const SignInPage = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [signInError, setSignInError] = React.useState('');
+  const navigate = useNavigate();
+
+  const userData = localStorage.getItem('userdata');
+
+  useEffect(() => {
+    userData !== null ? navigate('home') : navigate('/');
+  }, [navigate, userData]);
 
   function handleEmailInput(event: React.ChangeEvent<HTMLInputElement>) {
-    const regexForEmail = /^[a-z]/;
-    if (event.target.value === '' || regexForEmail.test(event.target.value)) {
-      setEmail(event.target.value);
-    }
+    setEmail(event.target.value);
   }
 
   function handlePasswordInput(event: React.ChangeEvent<HTMLInputElement>) {
-    const regexForPassword = /^[0-9]+$/;
-    if (
-      event.target.value === '' ||
-      regexForPassword.test(event.target.value)
-    ) {
-      setPassword(event.target.value);
-    }
+    setPassword(event.target.value);
   }
+
+  const data = {
+    username: email,
+    password: password,
+  };
 
   function handleSignInClick() {
-    alert('Signing In');
+    setSignInError('');
+    // Make API call to sign in the user
+    fetch('https://sea-turtle-app-ccc3d.ondigitalocean.app/api/auth/local', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        identifier: data.username,
+        password: data.password,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Handle successful sign in
+          localStorage.setItem('userdata', JSON.stringify(data));
+          navigate('home');
+          console.log(response);
+          console.log('User signed in successfully');
+        } else {
+          // Handle sign in error
+          setSignInError('Invalid credentials');
+        }
+      })
+      .catch((error) => {
+        // Handle sign in error
+        console.log('Error signing in: ', error);
+      });
   }
 
-  const navigate = useNavigate();
-
   const handleSignUpClick = () => {
-    // alert('Signing In');
-    navigate('register');
+    navigate('Signup');
   };
 
   return (
@@ -50,7 +78,7 @@ export const SignInPage = ({ label, placeholder }: SignInPageInterface) => {
       <h1>Movie OTT</h1>
       <div className="inner-container">
         <div className="sign_in-container">
-          <p>
+          <p className="signin-heading">
             <span>Sign</span> In
           </p>
           <InputTextField
@@ -62,11 +90,14 @@ export const SignInPage = ({ label, placeholder }: SignInPageInterface) => {
           />
           <InputTextField
             className="input-field"
+            type="password"
             label="Password"
             placeholder="Password"
             inputText={password}
             handleText={handlePasswordInput}
           />
+          <div className="signin-error">{signInError}</div>
+          {/* <p className='signin-error'>Sign In Warning/Error cases</p> */}
           <div className="signin-button-container">
             <Button
               className="signin-button"

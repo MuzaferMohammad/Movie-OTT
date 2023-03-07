@@ -29,6 +29,7 @@ const SignUp = () => {
 
   const handleRegister = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    alert('Registered');
     if (password !== confirmPassword) {
       console.log('Passwords do not match');
     } else {
@@ -40,7 +41,7 @@ const SignUp = () => {
     <div className="input-section">
       <h1>Movie OTT</h1>
       <div className="inputText-container">
-        <h1>Register</h1>
+        <>Register</>
         <InputTextField
           label="Full Name"
           inputText={name}

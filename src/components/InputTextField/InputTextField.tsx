@@ -5,6 +5,7 @@ interface InputTextFieldInterface {
   backgroundColor?: string;
   label?: string;
   className?: string;
+  type?: string;
   inputText?: string;
   handleText?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
@@ -17,6 +18,7 @@ export const InputTextField = ({
   handleText,
   backgroundColor,
   className,
+  type,
   placeholder,
   error,
 }: InputTextFieldInterface) => {
@@ -25,8 +27,7 @@ export const InputTextField = ({
       <label>{label}</label>
       <input
         className={className}
-        type="text"
-        id="input-text"
+        type={type}
         value={inputText}
         style={{ backgroundColor }}
         onChange={handleText}
