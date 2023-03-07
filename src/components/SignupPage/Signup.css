@@ -1,108 +1,117 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.inputText-container{
-     background:#1D253A;
-     border-radius: 8px;
-     padding:60px;
-}
- .submit-button{
-    background: #BB261A;
-    border-radius: 8px;
-    padding: 0.65em;
-    width: 20%;
-    border: none;
-    color:aliceblue;
-} 
-
-.register-btn{
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    margin-top:30px;
-    font-family: 'Poppins', sans-serif;
-   
+.inputText-container {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  height: 600px;
+  background: #1d253a;
+  border-radius: 12px;
+  padding: 0% 6%;
 }
 
-.input-section{
-    width: 100%;
-    height: 800px;
-    background: linear-gradient(124.99deg, #130908 -2.55%, rgba(19, 9, 8, 0) -2.55%, #370C0F 100%), url('../SignupPage/background-img.png');
-    background-size:100%;
-    padding:10px 400px 10px 400px;
-    
-}
-.inputText-container h1{
-    color:#FFFFFF;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
-}
-.input-section h1{
-    color:#BB261A;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 54px;
-    display: flex;
-    justify-content: center;
+.submit-button {
+  background: #bb261a;
+  border-radius: 8px;
+  padding: 0.65em;
+  width: 20%;
+  border: none;
+  color: aliceblue;
 }
 
-
-.input-container{
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-}
-.input-container label{
-color: #FFFFFF;
-margin-top: 20px;
+.register-btn {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.input-container::placeholder{
+.input-section {
+  height: 100vh;
+  padding: 5% 0% 5% 0%;
+  background: linear-gradient(
+      124.99deg,
+      #130908 -2.55%,
+      rgba(19, 9, 8, 0) -2.55%,
+      #370c0f 100%
+    ),
+    url('../SignInPage/images/ott-bg1.png');
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputText-container p {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.input-section h1 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 54px;
+  height: 10%;
+  color: #bb261a;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+.input-container label {
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.input-container::placeholder {
   font-size: 6px;
 }
-.inputtext-data{
-    border-radius: 8px;
-    border:none;
-    background:#181728;
-    padding: 0.5em;
-    width: 100%;
+.inputtext-data {
+  border-radius: 8px;
+  border: none;
+  background: #181728;
+  padding: 0.5em;
+  width: 100%;
 }
 
-
 @media (max-width: 768px) {
-    .input-section {
-      padding: 80px 20px;
-      height:850px;
-    }
-    
-    .input-section h1 {
-      font-size: 28px;
-      line-height: 42px;
-    }
-    
-    .inputText-container {
-      padding: 30px;
-    }
-    
-    .inputText-container h1 {
-      font-size: 20px;
-      line-height: 30px;
-    }
-    
-    .inputtext-data {
-      font-size: 14px;
-    }
-    
-    .submit-button {
-      width: 50%;
-    }
+  .input-section {
+    padding: 80px 20px;
+    height: 850px;
   }
+
+  .input-section h1 {
+    font-size: 28px;
+    line-height: 42px;
+  }
+
+  .inputText-container {
+    padding: 30px;
+  }
+
+  .inputText-container h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .inputtext-data {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    width: 50%;
+  }
+}
