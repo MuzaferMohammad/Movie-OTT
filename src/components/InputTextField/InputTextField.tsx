@@ -34,6 +34,7 @@ export const InputTextField = ({
         placeholder={placeholder}
         autoComplete="off"
       />
+      <div className="error-message">{error}</div>
     </div>
   );
 };
