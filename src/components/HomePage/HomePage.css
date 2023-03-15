@@ -1,15 +1,20 @@
 .homepage-container {
   background: #10141e;
   background-size: 100%;
-  width: 100%;
+  width: 100vw;
   padding: 2% 3% 2% 2%;
   display: flex;
   flex-direction: row;
+  height: 350vh;
 }
 
 /* .navigation-bar-home {
   
   } */
+
+.no-underline {
+  text-decoration: none;
+}
 
 .main-page-container {
   display: flex;
@@ -64,7 +69,7 @@
   top: 27%;
   position: absolute;
   left: 11%;
-  width: 80%;
+  width: 85%;
 }
 
 .popular-moviecard-container {
@@ -72,11 +77,10 @@
   top: 570px;
   left: 11%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px 50px;
   text-align: center;
   margin: 0 auto;
-  width: 100%;
 }
 
 .popular-movie-container {
@@ -89,17 +93,21 @@
   margin: 0 auto;
 }
 
+.greeting-container {
+  display: none;
+}
+
 @media (max-width: 420px) {
   .homepage-container {
     display: flex;
     flex-direction: column-reverse;
-    height: 100vh;
+    height: 350vh;
     padding: 0;
   }
 
   .main-page-container {
     display: flex;
-    margin-top: 3%;
+    margin-top: 4%;
     margin-left: 3%;
     width: 100%;
     flex-direction: column;
@@ -111,11 +119,31 @@
     flex-wrap: wrap;
   }
 
+  .greeting-container {
+    margin-top: 2%;
+    padding-left: 1%;
+    display: flex;
+    /* margin: 0; */
+    width: 100%;
+    gap: 10px;
+  }
+
+  .greeting-container img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .greeting-container p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ed4e4e;
+  }
+
   .search-bar-container-home {
     margin-top: 2%;
-    margin-left: 3%;
+    margin-left: 1%;
     display: flex;
-    margin: 0;
     width: 100%;
     flex-direction: column;
   }
@@ -133,7 +161,7 @@
     gap: 8px;
   }
 
-  .search-bar-container img{
+  .search-bar-container img {
     width: 22px;
     height: 22px;
   }
@@ -150,8 +178,8 @@
     line-height: 21px;
     color: rgba(255, 255, 255, 0.5);
     border: none;
-    width: 100vw;
-    padding: 1.5% 1% 0.3% 3%;
+    width: 80vw;
+    padding: 1.5% 1% 0.3% 1%;
   }
 
   .search-input::placeholder {
@@ -163,8 +191,8 @@
   }
 
   .trending-text {
-    font-weight: 400;
-    font-size: 28px;
+    font-weight: 300;
+    font-size: 24px;
     color: #ffffff;
   }
 
@@ -188,16 +216,16 @@
 
   .trending-container {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     position: absolute;
-    top: 8%;
+    top: 10%;
     left: 5%;
     text-align: center;
     margin: 0 auto;
   }
 
   .movie-tray-container {
-    top: 15%;
+    top: 18%;
     position: absolute;
     left: 5%;
     width: 90%;
@@ -205,10 +233,11 @@
 
   .popular-moviecard-container {
     position: absolute;
-    top: 55%;
+    top: 57%;
     left: 5%;
-    display: none;
-    grid-gap: 20px;
+    /* display: flex; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 10px;
     text-align: center;
     margin: 0 auto;
     width: 100%;
@@ -216,9 +245,9 @@
 
   .popular-movie-container {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     position: absolute;
-    top: 48%;
+    top: 50%;
     left: 5%;
     text-align: center;
     margin: 0 auto;

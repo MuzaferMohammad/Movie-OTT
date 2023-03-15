@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '../Button/Button';
 import { InputTextField } from '../InputTextField/InputTextField';
 import { useNavigate } from 'react-router-dom';
@@ -19,11 +19,11 @@ export const SignInPage = () => {
   const [signInError, setSignInError] = React.useState('');
   const navigate = useNavigate();
 
-  const userData = localStorage.getItem('userdata');
+  // const userData = localStorage.getItem('userdata');
 
-  useEffect(() => {
-    userData !== null ? navigate('home') : navigate('/');
-  }, [navigate, userData]);
+  // useEffect(() => {
+  //   userData !== null ? navigate('home') : navigate('/');
+  // }, [navigate, userData]);
 
   function handleEmailInput(event: React.ChangeEvent<HTMLInputElement>) {
     setEmail(event.target.value);
@@ -33,7 +33,7 @@ export const SignInPage = () => {
     setPassword(event.target.value);
   }
 
-  const data = {
+  const userdata = {
     username: email,
     password: password,
   };
@@ -47,17 +47,20 @@ export const SignInPage = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        identifier: data.username,
-        password: data.password,
+        identifier: userdata.username,
+        password: userdata.password,
       }),
     })
       .then((response) => {
         if (response.ok) {
           // Handle successful sign in
-          localStorage.setItem('userdata', JSON.stringify(data));
-          navigate('home');
-          console.log(response);
-          console.log('User signed in successfully');
+          void response.json().then((data) => {
+            localStorage.setItem('token', data.jwt);
+            localStorage.setItem('userdata', JSON.stringify(data));
+            navigate('home');
+            console.log(response);
+            console.log('User signed in successfully');
+          });
         } else {
           // Handle sign in error
           setSignInError('Invalid credentials');
@@ -96,7 +99,9 @@ export const SignInPage = () => {
             inputText={password}
             handleText={handlePasswordInput}
           />
-          <div className="signin-error">{signInError}</div>
+          {signInError !== '' ? (
+            <div className="signin-error">{signInError}</div>
+          ) : null}
           {/* <p className='signin-error'>Sign In Warning/Error cases</p> */}
           <div className="signin-button-container">
             <Button

@@ -1,0 +1,152 @@
+.movie-cards {
+  background: #10141e;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.poster {
+  /* width: 100%; */
+  display: flex;
+  height: 200px;
+  width: 350px;
+  border-radius: 16px;
+}
+
+.movie-data {
+  display: flex;
+  gap: 10px;
+}
+
+.movie-data p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+}
+
+.movie-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 36px;
+  color: #ffffff;
+  text-align: start;
+}
+
+.dot-icon {
+  width: 3px;
+  height: 3px;
+}
+
+.movie-card-icon {
+  width: 14px;
+  height: 13px;
+}
+
+.movieCard-container__bookmark__button {
+  margin: 0;
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  /* left: 320px; */
+  /* top: 15px; */
+  /* background-image: url('./assets/BGcircle.svg'); */
+  /* margin: 0;
+  position: absolute;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  margin-left: 100px; */
+  margin-left: 310px;
+  margin-top: 20px;
+}
+
+/* .movieCard-container__bookmark__button img {
+  background-image: url('./BGcircle.svg');
+} */
+
+.movie-cards a {
+  width: 100%;
+  vertical-align: top;
+  border: 0;
+  height: 200px;
+  display: flex;
+}
+
+@media (max-width: 420px) {
+  .movie-cards {
+    width: 170px;
+  }
+
+  /* .carousel .slide {
+    width: 240px;
+    margin: 0;
+    position: relative;
+    text-align: center;
+  } */
+
+  .movie-data {
+    display: flex;
+    gap: 7px;
+  }
+
+  .movie-data p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+  }
+
+  .movie-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: start;
+  }
+
+  .dot-icon {
+    width: 3px;
+    height: 3px;
+  }
+
+  .poster {
+    height: 160px;
+    width: 170px;
+  }
+
+  .movie-cards a {
+    vertical-align: top;
+    border: 0;
+    height: 160px;
+    width: 170px;
+    display: flex;
+  }
+
+  .movieCard-container__bookmark__button {
+    margin: 0;
+    position: absolute;
+    z-index: ;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    margin-left: 140px;
+    margin-top: 10px;
+  }
+
+  .movieCard-container__bookmark__button img {
+    width: 15px;
+    height: 15px;
+  }
+}
