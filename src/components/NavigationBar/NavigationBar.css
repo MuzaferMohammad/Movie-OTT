@@ -96,3 +96,44 @@
     display: none;
   }
 }
+
+@media (min-width: 420px) and (max-width: 770px) {
+  .nav-bar-container {
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    height: 10%;
+    gap: 0px;
+    z-index:2;
+    position: absolute;
+  }
+
+  .nav-bar-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .nav-bar-section {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .nav-bar-container img {
+    width: 100%;
+  }
+
+  .nav-bar-logo {
+    display: none;
+  }
+
+  .nav-bar-dashboard img {
+    margin-top: 0px;
+    justify-content: center;
+  }
+
+  .nav-bar-profile {
+    display: none;
+  }
+}

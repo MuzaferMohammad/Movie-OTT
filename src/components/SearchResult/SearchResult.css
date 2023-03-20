@@ -1,0 +1,17 @@
+.search-results-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    grid-gap:20px 7%;
+    top: 150px;
+    left: 11%;
+    margin-right: 7%;
+}
+
+/* .result-message{
+    font-size: 1.7rem;
+    color: #fff;
+    position: absolute;
+    top: 120px;
+    left: 180px;
+} */

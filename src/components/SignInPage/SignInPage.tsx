@@ -55,7 +55,7 @@ export const SignInPage = () => {
         if (response.ok) {
           // Handle successful sign in
           void response.json().then((data) => {
-            localStorage.setItem('token', data.jwt);
+            // localStorage.setItem('token', data.jwt);
             localStorage.setItem('userdata', JSON.stringify(data));
             navigate('home');
             console.log(response);

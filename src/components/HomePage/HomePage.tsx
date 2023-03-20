@@ -8,52 +8,11 @@ import './HomePage.css';
 import { MovieCards } from '../MovieCards/MovieCards';
 import { MovieTray } from '../MovieTray/MovieTray';
 import axios from 'axios';
-// import axios from 'axios';
-
-// interface ButtonProps {
-//   backgroundColor?: string;
-//   color?:string;
-//   label: string;
-//   onClick?: () => void;
-// }
 
 export const HomePage = () => {
-  // const [movieData, setMovieData] = React.useState([]);
-  // const navigate = useNavigate();
-  // const handleLogoutClick = () => {
-  //   localStorage.removeItem('userdata');
-  //   navigate('/');
-  // };
-  // const tokenData = localStorage.getItem('token');
-  // const token = tokenData !== null ? tokenData : '';
-
-  // React.useEffect(() => {
-  //   axios
-  //     .get(
-  //       'https://sea-turtle-app-ccc3d.ondigitalocean.app/api/movies?populate=*',
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           Accept: 'application/json, text/plain, */*',
-  //         },
-  //       },
-  //     )
-  //     .then((response) => response.data.data)
-  //     .then((data) => {
-  //       // console.log(data);
-  //       // console.log(data[0].attributes.Name);
-  //       setMovieData(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching movie data:', error);
-  //     });
-  // }, [token]);
-
   const userData = localStorage.getItem('userdata');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const userDataObj = userData !== null ? JSON.parse(userData) : '';
-
-  // console.log(movieData);
 
   const [populourMovies, setPopulourMovies] = React.useState([]);
 
@@ -101,7 +60,6 @@ export const HomePage = () => {
         <div className="popular-moviecard-container">
           {populourMovies.map((movie: any, index: number) => (
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            // <Link to={`/movies/${movie.id}`} key={movie.id} className='no-underline'>
             <div key={movie.id}>
               <MovieCards
                 {...movie}
@@ -116,7 +74,6 @@ export const HomePage = () => {
                 category={'Movie'}
               />
             </div>
-            // </Link>
           ))}
         </div>
       </div>

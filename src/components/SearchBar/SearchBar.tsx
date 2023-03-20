@@ -22,6 +22,8 @@ export const SearchBar = ({
   inputText,
 }: SearchBarInterface) => {
   const [searchInput, setSearchInput] = React.useState('');
+  const [searchInputError, setSearchInputError] = React.useState('');
+
   // const [results, setResults] = React.useState([]);
   const navigate = useNavigate();
 
@@ -52,7 +54,9 @@ export const SearchBar = ({
 
   function handleSearchClick() {
     // alert('Searching movies');
-    navigate(`/search/${searchInput}`);
+    searchInput !== ''
+      ? navigate(`/search/${searchInput}`)
+      : setSearchInputError('Enter a valid input');
   }
 
   return (
@@ -64,6 +68,7 @@ export const SearchBar = ({
           placeholder={placeholder}
           inputText={searchInput}
           handleText={handleSearchInput}
+          error={searchInputError}
         />
       </div>
       <div className="search-button-container">

@@ -15,11 +15,8 @@ import './NavigationBar.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const NavigationBar = () => {
-  // const [isClicked, setIsClicked] = React.useState(false);
   const [isLoggingOut, setIsLoggingOut] = React.useState(false);
-  // function handleDashboardClick() {
-  //   setIsClicked(!isClicked);
-  // }
+
   const location = useLocation();
   const navigate = useNavigate();
 
