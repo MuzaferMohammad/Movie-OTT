@@ -38,6 +38,7 @@ export const MovieTray = () => {
           <div key={movie.id}>
             <MovieCard
               {...movie}
+              className="movie-cards-carousel"
               genre="movies"
               // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

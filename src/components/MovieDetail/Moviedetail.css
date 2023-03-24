@@ -1,0 +1,276 @@
+.movieDetailsPage-container {
+  background: #10141e;
+  background-size: 100%;
+  width: 100%;
+  padding: 2% 3% 2% 2%;
+  display: flex;
+  flex-direction: row;
+  height: 150vh;
+}
+
+.moviedetail-title {
+  position: absolute;
+  color: #ffffff;
+  top: 20%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.moviedetail-img {
+  position: absolute;
+  top: 20%;
+  left: 12%;
+  width: 33%;
+}
+
+.movie-tagline {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  color: #ffffff;
+}
+
+.moviedetail-overview-container {
+  position: absolute;
+  top: 430px;
+  left: 50%;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.moviedetail-overview {
+  position: absolute;
+  top: 480px;
+  left: 50%;
+  color: #ffffff;
+  width: 45%;
+  font-weight: 500;
+}
+
+.movieDetails-header{
+  position: absolute;
+  color: white;
+  left: 50%;
+  top:430px;
+} 
+
+.movieDetails-genre-container{
+  position: absolute;
+  top:460px;
+  left:50%;
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+}
+
+.genres-list{
+  color: black;
+  text-decoration: none;
+  padding:6px;
+  border:1px solid white;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.moviedetail-genre {
+  position: absolute;
+}
+
+.genres-list {
+  display: flex;
+  gap: 20px;
+  top: 420px;
+  left: 700px;
+}
+
+.moviedetail-lang-container {
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  color: #ffffff;
+  font-size: 20px;
+}
+.moviedetail-lang {
+  position: absolute;
+  top: 320px;
+  left: 750px;
+  color: #ffffff;
+  font-weight: bold;
+}
+.movie-rating {
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  color: #ffffff;
+  font-size: 30px;
+}
+.moviedetail-year-container {
+  position: absolute;
+  top: 280px;
+  left: 900px;
+  color: #ffffff;
+  font-size: 20px;
+}
+.moviedetail-year {
+  position: absolute;
+  top: 320px;
+  left: 900px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.movieDetails-section {
+  width: 95%;
+  height: 100vh;
+}
+
+.moviedetail-genre-container {
+  position: absolute;
+  color: white;
+  top: 400px;
+  left: 700px;
+}
+
+.moviedetail-genre {
+  position: absolute;
+}
+
+.genres-list {
+  display: flex;
+  gap: 20px;
+  top: 420px;
+  left: 700px;
+}
+
+.moviedetail-ratings-container {
+  position: absolute;
+  top: 270px;
+  left: 50%;
+  color: #ffffff;
+  font-size: 35px;
+}
+
+.length-ratings-container {
+  display: flex;
+  top: 340px;
+  position: absolute;
+  left: 50%;
+  gap: 1.5%;
+  width: 48%;
+}
+
+.inner-length-ratings-container {
+  width: 25%;
+}
+
+.heading {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heading-data {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+  /* width: 150px; */
+  width: 20%;
+}
+
+
+@media (max-width: 767px) {
+  .movieDetailsPage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 100vh;
+    max-height: 140vh;
+    padding: 0;
+  }
+
+  .homepage-container-movieDetails {
+    flex-direction: column;
+    height: auto;
+    padding: 5%;
+  }
+
+  .moviedetail-title {
+    top: 50px;
+    left: 5%;
+    font-size: 24px;
+    top: 67%;
+  }
+  .moviedetails-container {
+    height: auto;
+  }
+
+  .moviedetail-img {
+    top: 13%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+  }
+
+  .movie-tagline {
+    top: 70%;
+    left: 5%;
+    font-size: 14px;
+  }
+
+  .moviedetail-overview-container {
+    top: 84%;
+    left: 5%;
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .moviedetail-overview {
+    top: 88%;
+    left: 5%;
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .moviedetail-genre-container {
+    top: 80%;
+    left: 5%;
+  }
+
+  .genres-list {
+    top: 85%;
+    left: 5%;
+  }
+
+  .moviedetail-genre {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .moviedetail-ratings-container {
+    top: 30%;
+    left: 5%;
+    font-size: 24px;
+  }
+
+  .length-ratings-container {
+    top: 75%;
+    left: 5%;
+    font-size: 14px;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .heading {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .heading-data {
+    font-size: 14px;
+    line-height: 20px;
+    width: 70px;
+  }
+}

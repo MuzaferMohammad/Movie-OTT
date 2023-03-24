@@ -5,7 +5,7 @@
   padding: 2% 3% 2% 2%;
   display: flex;
   flex-direction: row;
-  height: 350vh;
+  height: 390vh;
 }
 
 /* .navigation-bar-home {
@@ -74,11 +74,10 @@
 
 .popular-moviecard-container {
   position: absolute;
-  top: 570px;
+  top: 77%;
   left: 11%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-gap: 30px 4%; */
   grid-gap: 30px 4.5%;
   text-align: center;
   margin: 0 auto;
@@ -90,7 +89,7 @@
   display: flex;
   gap: 16px;
   position: absolute;
-  top: 63%;
+  top: 67%;
   left: 11%;
   text-align: center;
   margin: 0 auto;
@@ -105,7 +104,7 @@
   .homepage-container {
     display: flex;
     flex-direction: column-reverse;
-    height: 380vh;
+    height:390vh;
     padding: 0;
   }
 
@@ -113,7 +112,7 @@
     display: flex;
     margin-top: 4%;
     margin-left: 3%;
-    width: 100%;
+    width: 97%;
     flex-direction: column;
     height: 100vh;
   }
@@ -146,18 +145,19 @@
 
   .search-bar-container-home {
     margin-top: 2%;
-    margin-left: 1%;
+    /* margin-left: 1%; */
     display: flex;
     width: 100%;
     flex-direction: column;
   }
 
   .search-button-container {
-    display: none;
-  }
+    display: flex;
+    margin-left: 4%;
+    }
 
   .search-bar-container {
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: row;
     height: 30px;
@@ -172,26 +172,7 @@
 
   .input-field-search-bar {
     margin: 0;
-    width: 100%;
-  }
-
-  .search-input {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 21px;
-    color: rgba(255, 255, 255, 0.5);
-    border: none;
-    width: 80vw;
-    padding: 1.5% 1% 0.3% 1%;
-  }
-
-  .search-input::placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 21px;
-    color: rgba(255, 255, 255, 0.5);
+    width: 65%;
   }
 
   .trending-text {
@@ -262,7 +243,7 @@
   .homepage-container {
     display: flex;
     flex-direction: column-reverse;
-    height: 360vh;
+    height: 410vh;
     padding: 0;
   }
 
@@ -270,7 +251,7 @@
     display: flex;
     margin-top: 4%;
     margin-left: 3%;
-    width: 100%;
+    width: 97%;
     flex-direction: column;
     height: 100vh;
   }
@@ -299,56 +280,6 @@
     font-size: 16px;
     line-height: 21px;
     color: #ed4e4e;
-  }
-
-  .search-bar-container-home {
-    margin-top: 2%;
-    margin-left: 1%;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .search-button-container {
-    display: flex;
-  }
-
-  .search-bar-container {
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    height: 30px;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .search-bar-container img {
-    width: 22px;
-    height: 22px;
-  }
-
-  .input-field-search-bar {
-    margin: 0;
-    width: 100%;
-  }
-
-  .search-input {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 21px;
-    color: rgba(255, 255, 255, 0.5);
-    border: none;
-    width: 80vw;
-    padding: 1.5% 1% 0.3% 1%;
-  }
-
-  .search-input::placeholder {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 21px;
-    color: rgba(255, 255, 255, 0.5);
   }
 
   .trending-text {

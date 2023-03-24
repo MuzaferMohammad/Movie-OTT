@@ -12,23 +12,26 @@ import Bookmark from './assets/Bookmark.svg';
 import Profile from './assets/Profile.svg';
 
 import './NavigationBar.css';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const NavigationBar = () => {
   const [isLoggingOut, setIsLoggingOut] = React.useState(false);
 
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    setIsLoggingOut(true);
+    setIsLoggingOut(!isLoggingOut);
     if (window.confirm('Are you sure you want to log out?')) {
       localStorage.removeItem('userdata');
       localStorage.removeItem('token');
-      navigate('/');
+      // navigate('/');
+      window.history.replaceState(null, '', '/');
       window.location.reload();
+      // window.addEventListener('popstate', function(event) {
+      // navigate('/');
+      // });
     }
-    setIsLoggingOut(!isLoggingOut);
   };
 
   return (

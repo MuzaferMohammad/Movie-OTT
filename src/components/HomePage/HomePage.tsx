@@ -2,12 +2,13 @@ import React from 'react';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import BookmarkIcon from '../MovieCards/assets/BookmarkIcon.svg';
 import { SearchBar } from '../SearchBar/SearchBar';
-import Profile from '../NavigationBar/assets/Profile.svg';
+// import Profile from '../NavigationBar/assets/Profile.svg';
 import './HomePage.css';
 // import { data } from '../../data';
 import { MovieCards } from '../MovieCards/MovieCards';
 import { MovieTray } from '../MovieTray/MovieTray';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
   const userData = localStorage.getItem('userdata');
@@ -15,6 +16,13 @@ export const HomePage = () => {
   const userDataObj = userData !== null ? JSON.parse(userData) : '';
 
   const [populourMovies, setPopulourMovies] = React.useState([]);
+
+  const navigate = useNavigate();
+  console.log(userData);
+
+  React.useEffect(() => {
+    userData !== null ? navigate('/home') : navigate('/');
+  }, [navigate, userData]);
 
   React.useEffect(() => {
     axios
@@ -33,10 +41,10 @@ export const HomePage = () => {
     <div className="homepage-container">
       <NavigationBar />
       <div className="main-page-container">
-        <div className="greeting-container">
+        {/* <div className="greeting-container">
           <img src={Profile} />
           <p>Hello, {userDataObj.user.username}</p>
-        </div>
+        </div> */}
 
         <div className="search-bar-container-home">
           <SearchBar placeholder="Search for movies or TV series" />
@@ -63,6 +71,7 @@ export const HomePage = () => {
             <div key={movie.id}>
               <MovieCards
                 {...movie}
+                className="movie-cards"
                 genre="movies"
                 // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                 poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

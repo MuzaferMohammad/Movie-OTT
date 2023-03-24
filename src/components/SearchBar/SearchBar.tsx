@@ -16,11 +16,7 @@ interface SearchBarInterface {
   handleSearchError?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const SearchBar = ({
-  placeholder,
-  label,
-  inputText,
-}: SearchBarInterface) => {
+export const SearchBar = ({ placeholder }: SearchBarInterface) => {
   const [searchInput, setSearchInput] = React.useState('');
   const [searchInputError, setSearchInputError] = React.useState('');
 
@@ -36,21 +32,6 @@ export const SearchBar = ({
       setSearchInput(event.target.value);
     }
   }
-
-  // async function handleSearchClick() {
-  //   // alert('Searching movies');
-  //   try {
-  //     const result = await axios.get(
-  //       `https://api.themoviedb.org/3/search/multi?query=${searchInput}&api_key=13622fc50c5257d370284ea008163f90`,
-  //     );
-  //     console.log(result);
-  //     setResults(result.data.results);
-  //   } catch (error) {
-  //     console.log(error);
-  //     // display error message to user
-  //   }
-  // }
-  // console.log(results);
 
   function handleSearchClick() {
     // alert('Searching movies');
@@ -78,16 +59,6 @@ export const SearchBar = ({
           onClick={handleSearchClick}
         />
       </div>
-      {/* 
-      {results.length > 0 && (
-        <section className="searchResult-container">
-          {results.length > 0 ? (
-            <SearchResults results={results} />
-          ) : (
-            <p>No results found</p>
-          )}
-        </section>
-      )} */}
     </div>
   );
 };

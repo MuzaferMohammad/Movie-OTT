@@ -4,9 +4,21 @@ import { MovieCards } from '../MovieCards/MovieCards';
 import BookmarkIcon from '../MovieCards/assets/BookmarkIcon.svg';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { NoResults } from '../NoResults/NoResults';
 
 export const SearchResult = () => {
+  const userData = localStorage.getItem('userdata');
+
+  const navigate = useNavigate();
+  console.log(userData);
+
+  React.useEffect(() => {
+    if (userData === null) {
+      navigate('/');
+    }
+  }, [navigate, userData]);
+
   const [results, setResults] = React.useState<
     Array<{ media_type: string; poster_path: string }>
   >([]);
@@ -32,13 +44,26 @@ export const SearchResult = () => {
 
   // if (results.length === 0) {
   //   navigate('/no-results');
-  // const filteredResults=results.filter((item)=>item.media_type!=='person' && item.poster_path!==null)
   // }
 
-  console.log(results);
   localStorage.setItem('resultLength', JSON.stringify(results.length));
+  const movieResults = results.filter(
+    (item) =>
+      item.media_type !== 'person' &&
+      item.media_type !== 'tv' &&
+      item.poster_path !== null,
+  );
 
-  return (
+  const tvResults = results.filter(
+    (item) =>
+      item.media_type !== 'person' &&
+      item.media_type !== 'movie' &&
+      item.poster_path !== null,
+  );
+
+  const filteredResultLength = movieResults.length + tvResults.length;
+
+  return filteredResultLength > 0 || filteredResultLength !== null ? (
     <div className="homepage-container">
       <NavigationBar />
       <div className="main-page-container">
@@ -46,43 +71,68 @@ export const SearchResult = () => {
         <div className="search-bar-container-home">
           <SearchBar placeholder="Search for movies" />
         </div>
-        {/* <p className='result-message'>Found {results.length} results for  ‘{searchQuery}’</p> */}
+        <p className="result-message">
+          Found {filteredResultLength} results for ‘{searchQuery}’
+        </p>
         <div className="search-results-container">
-          {results
-            .filter(
-              (item) =>
-                item.media_type !== 'person' && item.poster_path !== null,
-            )
-            .map((result: any) => (
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-              // <Link to={`/movies/${result.id}`} key={result.id} className='no-underline'>
-              <MovieCards
-                genre="movies"
-                category={result.media_type}
-                key={result.id}
-                id={result.id}
-                className="search-result-container"
-                poster={`${'https://image.tmdb.org/t/p/w500'}${
-                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                  result.poster_path
-                }`}
-                title={
-                  typeof result.title === 'string' && result.title !== null
-                    ? result.title
-                    : result.name
-                }
-                isBookmarked={result.isBookmarked}
-                year={
-                  typeof result.release_date === 'string'
-                    ? result.release_date.substring(0, 4)
-                    : result.first_air_date.substring(0, 4)
-                }
-                BookmarkIcon={BookmarkIcon}
-              />
-              // </Link>
-            ))}
+          {movieResults.map((result: any) => (
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            <MovieCards
+              // genre="movies"
+
+              genre="movies"
+              category={result.media_type}
+              key={result.id}
+              id={result.id}
+              className="movie-cards"
+              poster={`${'https://image.tmdb.org/t/p/w500'}${
+                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                result.poster_path
+              }`}
+              title={
+                typeof result.title === 'string' && result.title !== null
+                  ? result.title
+                  : result.name
+              }
+              isBookmarked={result.isBookmarked}
+              year={
+                typeof result.release_date === 'string'
+                  ? result.release_date.substring(0, 4)
+                  : result.first_air_date.substring(0, 4)
+              }
+              BookmarkIcon={BookmarkIcon}
+            />
+          ))}
+          {tvResults.map((result: any) => (
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            <MovieCards
+              genre="series"
+              category={result.media_type}
+              key={result.id}
+              id={result.id}
+              className="movie-cards"
+              poster={`${'https://image.tmdb.org/t/p/w500'}${
+                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                result.poster_path
+              }`}
+              title={
+                typeof result.title === 'string' && result.title !== null
+                  ? result.title
+                  : result.name
+              }
+              isBookmarked={result.isBookmarked}
+              year={
+                typeof result.release_date === 'string'
+                  ? result.release_date.substring(0, 4)
+                  : result.first_air_date.substring(0, 4)
+              }
+              BookmarkIcon={BookmarkIcon}
+            />
+          ))}
         </div>
       </div>
     </div>
+  ) : (
+    <NoResults searchInput={searchQuery} />
   );
 };

@@ -1,0 +1,31 @@
+.moviegenre-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    grid-gap:30px;
+    top: 150px;
+    left: 11%;
+}
+
+@media (max-width: 420px) {
+    .moviegenre-section{
+        height:auto;
+    }
+
+    .moviegenre-list {
+        gap: 40px;
+        top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        /* padding: 10px; */
+        display: flex;
+        background: #10141e;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .movielist{
+        padding: 10px;
+        width: 50%;
+    }
+   
+}
