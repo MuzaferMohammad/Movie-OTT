@@ -42,9 +42,13 @@ export const MovieGenreList = () => {
                 genre="movies"
                 category="Movie"
                 className="movie-cards"
-                year={movie.release_date.substring(0, 4)}
-                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+                year={
+                  typeof movie.release_date === 'string'
+                    ? movie.release_date.substring(0, 4)
+                    : 'N/A'
+                }
                 poster={`${'https://image.tmdb.org/t/p/w500'}${
+                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                   movie.poster_path
                 }`}
                 title={movie.title}

@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React from 'react';
-// import axios from 'axios';
 import { Button } from '../Button/Button';
 import { InputTextField } from '../InputTextField/InputTextField';
 import searchIcon from './searchIcon.svg';
@@ -18,9 +18,6 @@ interface SearchBarInterface {
 
 export const SearchBar = ({ placeholder }: SearchBarInterface) => {
   const [searchInput, setSearchInput] = React.useState('');
-  const [searchInputError, setSearchInputError] = React.useState('');
-
-  // const [results, setResults] = React.useState([]);
   const navigate = useNavigate();
 
   function handleSearchInput(event: React.ChangeEvent<HTMLInputElement>) {
@@ -34,10 +31,7 @@ export const SearchBar = ({ placeholder }: SearchBarInterface) => {
   }
 
   function handleSearchClick() {
-    // alert('Searching movies');
-    searchInput !== ''
-      ? navigate(`/search/${searchInput}`)
-      : setSearchInputError('Enter a valid input');
+    navigate(`/search/${searchInput}`);
   }
 
   return (
@@ -49,7 +43,6 @@ export const SearchBar = ({ placeholder }: SearchBarInterface) => {
           placeholder={placeholder}
           inputText={searchInput}
           handleText={handleSearchInput}
-          error={searchInputError}
         />
       </div>
       <div className="search-button-container">
@@ -57,6 +50,7 @@ export const SearchBar = ({ placeholder }: SearchBarInterface) => {
           className="search-button"
           label={'Search'}
           onClick={handleSearchClick}
+          disabled={!searchInput}
         />
       </div>
     </div>

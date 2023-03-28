@@ -2,9 +2,7 @@ import React from 'react';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import BookmarkIcon from '../MovieCards/assets/BookmarkIcon.svg';
 import { SearchBar } from '../SearchBar/SearchBar';
-// import Profile from '../NavigationBar/assets/Profile.svg';
 import './HomePage.css';
-// import { data } from '../../data';
 import { MovieCards } from '../MovieCards/MovieCards';
 import { MovieTray } from '../MovieTray/MovieTray';
 import axios from 'axios';
@@ -12,18 +10,18 @@ import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
   const userData = localStorage.getItem('userdata');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const userDataObj = userData !== null ? JSON.parse(userData) : '';
 
   const [populourMovies, setPopulourMovies] = React.useState([]);
 
   const navigate = useNavigate();
-  console.log(userData);
+  // console.log(userData);
 
+  // check if the user is logged in otherwise redirect the user to sign-in page
   React.useEffect(() => {
     userData !== null ? navigate('/home') : navigate('/');
   }, [navigate, userData]);
 
+  // fetch popular movies
   React.useEffect(() => {
     axios
       .get(
@@ -41,11 +39,6 @@ export const HomePage = () => {
     <div className="homepage-container">
       <NavigationBar />
       <div className="main-page-container">
-        {/* <div className="greeting-container">
-          <img src={Profile} />
-          <p>Hello, {userDataObj.user.username}</p>
-        </div> */}
-
         <div className="search-bar-container-home">
           <SearchBar placeholder="Search for movies or TV series" />
         </div>
@@ -55,7 +48,6 @@ export const HomePage = () => {
             <p>Movie</p>
           </div>
         </div>
-
         <div className="movie-tray-container">
           <MovieTray />
         </div>
@@ -78,7 +70,6 @@ export const HomePage = () => {
                 // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
                 title={movie.title || movie.name}
                 BookmarkIcon={BookmarkIcon}
-                // eslint-disable-next-line react/jsx-no-duplicate-props
                 year={movie.release_date.substring(0, 4)}
                 category={'Movie'}
               />

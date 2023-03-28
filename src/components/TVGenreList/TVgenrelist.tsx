@@ -37,7 +37,6 @@ export const TVGenreList = () => {
         <div className="tvgenre-list">
           {tvseries.map((series: any) => (
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-
             <MovieCards
               {...series}
               key={series.id}

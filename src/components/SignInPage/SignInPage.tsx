@@ -4,26 +4,12 @@ import { InputTextField } from '../InputTextField/InputTextField';
 import { useNavigate } from 'react-router-dom';
 import './SignInPage.css';
 
-// interface SignInPageInterface {
-//   label?: string;
-//   email?: string;
-//   password?: string;
-//   handleEmailInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-//   handlePasswordInput?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-//   placeholder?: string;
-// }
-
 export const SignInPage = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [signInError, setSignInError] = React.useState('');
+
   const navigate = useNavigate();
-
-  // const userData = localStorage.getItem('userdata');
-
-  // useEffect(() => {
-  //   userData !== null ? navigate('home') : navigate('/');
-  // }, [navigate, userData]);
 
   function handleEmailInput(event: React.ChangeEvent<HTMLInputElement>) {
     setEmail(event.target.value);
@@ -55,7 +41,6 @@ export const SignInPage = () => {
         if (response.ok) {
           // Handle successful sign in
           void response.json().then((data) => {
-            // localStorage.setItem('token', data.jwt);
             localStorage.setItem('userdata', JSON.stringify(data));
             navigate('home');
             console.log(response);
@@ -67,7 +52,6 @@ export const SignInPage = () => {
         }
       })
       .catch((error) => {
-        // Handle sign in error
         console.log('Error signing in: ', error);
       });
   }

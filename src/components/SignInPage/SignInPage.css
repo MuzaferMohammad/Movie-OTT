@@ -170,6 +170,7 @@ body {
     display: flex;
     padding: 7% 10%;
     height: 100vh;
+    min-height: 800px;
   }
 
   .container h1 {

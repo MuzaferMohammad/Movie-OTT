@@ -4,11 +4,12 @@ import './SeriesDetail.css';
 import React from 'react';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import { SearchBar } from '../SearchBar/SearchBar';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { getLanguageName } from '../../LanguageName';
 const SeriesDetails = () => {
   const { tvseriesId } = useParams<{ tvseriesId: string }>();
   const [seriesDetails, setseriesDetails]: any = React.useState([]);
-
+  const [seriescastDetails, setSeriesCastDetails] = React.useState([]);
   React.useEffect(() => {
     fetch(
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
@@ -22,10 +23,20 @@ const SeriesDetails = () => {
       .catch((error) => {
         console.error(error);
       });
+    fetch(
+      `https://api.themoviedb.org/3/tv/${tvseriesId}/credits?api_key=0ddfe6bb88aaddb93e21726fd865a9dd&language=en-US`,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setSeriesCastDetails(data.cast);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [tvseriesId]);
 
   return (
-    <div className="movieDetailsPage-container">
+    <div className="seriesDetailsPage-container">
       <NavigationBar />
       <div className="main-page-container">
         <div className="greeting-container"></div>
@@ -35,21 +46,31 @@ const SeriesDetails = () => {
 
         <div className="seriesDetails-section">
           <div className="seriesdetails-container">
-            {/* <p className="series-rating">{seriesDetails.vote_average}</p> */}
+            <img
+              src={`${'https://image.tmdb.org/t/p/w500'}${
+                seriesDetails.poster_path
+              }`}
+              className="moviedetail-img"
+            />
 
+            <h2 className="seriesdetail-title">{seriesDetails.name}</h2>
+            <p className="series-tagline">{seriesDetails.tagline}</p>
+            <p className="series-rating">
+              {seriesDetails.vote_average > 1
+                ? seriesDetails.vote_average.toFixed(1)
+                : seriesDetails.vote_average}
+            </p>
             <div className="length-ratings-container">
               <div className="inner-length-ratings-container">
                 <p className="heading">Episodes</p>
                 <p className="heading-data">
-                  {typeof seriesDetails.number_of_episodes === 'number'
-                    ? `${seriesDetails.number_of_episodes}`
-                    : 'N/A'}
+                  {seriesDetails.number_of_episodes}
                 </p>
               </div>
               <div className="inner-length-ratings-container">
                 <p className="heading">Language</p>
                 <p className="heading-data">
-                  {seriesDetails.original_language}
+                  {getLanguageName(seriesDetails.original_language)}
                 </p>
               </div>{' '}
               <div className="inner-length-ratings-container">
@@ -65,16 +86,32 @@ const SeriesDetails = () => {
                 <p className="heading-data">{seriesDetails.status}</p>
               </div>
             </div>
-            <img
-              src={`${'https://image.tmdb.org/t/p/w500'}${
-                seriesDetails.poster_path
-              }`}
-              className="seriesdetail-img"
-            />
-            <h2 className="seriesdetail-title">{seriesDetails.name}</h2>
+
+            <p className="seriesDetails-header">Genre </p>
+            <div className="seriesDetails-genre-container">
+              {Boolean(seriesDetails.genres) &&
+                seriesDetails.genres.map((genre: any) => (
+                  <Link
+                    to={`/genre/${genre.id}`}
+                    className="genres-list"
+                    key={genre.id}
+                  >
+                    {genre.name}
+                  </Link>
+                ))}
+            </div>
 
             <p className="seriesdetail-overview-container">Synopsis</p>
             <p className="seriesdetail-overview">{seriesDetails.overview}</p>
+
+            <p className="cast-details-container">Cast</p>
+            <div className="cast-details">
+              {seriescastDetails.map((cast: any) => (
+                <Link className="cast" key={cast.id} to={`/person/${cast.id}`}>
+                  {cast.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

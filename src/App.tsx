@@ -13,6 +13,8 @@ import MovieDetails from './components/MovieDetail/Moviedetail';
 import { TVGenreList } from './components/TVGenreList/TVgenrelist';
 import { SearchResult } from './components/SearchResult/SearchResult';
 import SeriesDetails from './components/SeriesDetail/SeriesDetail';
+import PersonDetails from './components/PersonDetails/Persondetail';
+import ScrollToTop from './components/ScrollComponent/ScrollComponent';
 
 function App() {
   const userData = localStorage.getItem('userdata');
@@ -20,6 +22,7 @@ function App() {
   return (
     <div className="App-container">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route
             path="/"
@@ -54,6 +57,7 @@ function App() {
             element={userData !== null ? <TVGenreList /> : <SignInPage />}
           />
           <Route path="/search/:searchQuery" element={<SearchResult />} />
+          <Route path="/person/:personId" element={<PersonDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -5,14 +5,12 @@ import BookmarkIcon from '../MovieCards/assets/BookmarkIcon.svg';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import { useNavigate, useParams } from 'react-router-dom';
-import { NoResults } from '../NoResults/NoResults';
+// import { NoResults } from '../NoResults/NoResults';
 
 export const SearchResult = () => {
   const userData = localStorage.getItem('userdata');
 
   const navigate = useNavigate();
-  console.log(userData);
-
   React.useEffect(() => {
     if (userData === null) {
       navigate('/');
@@ -22,9 +20,8 @@ export const SearchResult = () => {
   const [results, setResults] = React.useState<
     Array<{ media_type: string; poster_path: string }>
   >([]);
-  const { searchQuery } = useParams<{ searchQuery: string }>();
 
-  // const navigate = useNavigate();
+  const { searchQuery } = useParams<{ searchQuery: string }>();
 
   React.useEffect(() => {
     fetch(
@@ -35,35 +32,33 @@ export const SearchResult = () => {
       .then((response) => response.json())
       .then((data) => {
         setResults(data.results);
-        console.log(data.results);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [searchQuery]);
+  }, [searchQuery, results, navigate]);
 
-  // if (results.length === 0) {
-  //   navigate('/no-results');
-  // }
+  // console.log(results);
 
-  localStorage.setItem('resultLength', JSON.stringify(results.length));
+  localStorage.setItem('searchInput', JSON.stringify(searchQuery));
+
   const movieResults = results.filter(
     (item) =>
       item.media_type !== 'person' &&
       item.media_type !== 'tv' &&
       item.poster_path !== null,
   );
-
   const tvResults = results.filter(
     (item) =>
       item.media_type !== 'person' &&
       item.media_type !== 'movie' &&
       item.poster_path !== null,
   );
-
   const filteredResultLength = movieResults.length + tvResults.length;
-
-  return filteredResultLength > 0 || filteredResultLength !== null ? (
+  if (filteredResultLength === 0) {
+    navigate('/no-results');
+  }
+  return (
     <div className="homepage-container">
       <NavigationBar />
       <div className="main-page-container">
@@ -71,17 +66,16 @@ export const SearchResult = () => {
         <div className="search-bar-container-home">
           <SearchBar placeholder="Search for movies" />
         </div>
-        <p className="result-message">
-          Found {filteredResultLength} results for ‘{searchQuery}’
-        </p>
+        {filteredResultLength > 0 && (
+          <p className="result-message">
+            Found {filteredResultLength} results for ‘{searchQuery}’
+          </p>
+        )}
         <div className="search-results-container">
           {movieResults.map((result: any) => (
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             <MovieCards
-              // genre="movies"
-
               genre="movies"
-              category={result.media_type}
+              category="Movie"
               key={result.id}
               id={result.id}
               className="movie-cards"
@@ -98,16 +92,15 @@ export const SearchResult = () => {
               year={
                 typeof result.release_date === 'string'
                   ? result.release_date.substring(0, 4)
-                  : result.first_air_date.substring(0, 4)
+                  : 'N/A'
               }
               BookmarkIcon={BookmarkIcon}
             />
           ))}
           {tvResults.map((result: any) => (
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             <MovieCards
               genre="series"
-              category={result.media_type}
+              category="TV"
               key={result.id}
               id={result.id}
               className="movie-cards"
@@ -122,9 +115,9 @@ export const SearchResult = () => {
               }
               isBookmarked={result.isBookmarked}
               year={
-                typeof result.release_date === 'string'
-                  ? result.release_date.substring(0, 4)
-                  : result.first_air_date.substring(0, 4)
+                typeof result.first_air_date === 'string'
+                  ? result.first_air_date.substring(0, 4)
+                  : 'N/A'
               }
               BookmarkIcon={BookmarkIcon}
             />
@@ -132,7 +125,5 @@ export const SearchResult = () => {
         </div>
       </div>
     </div>
-  ) : (
-    <NoResults searchInput={searchQuery} />
   );
 };

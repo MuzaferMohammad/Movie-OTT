@@ -5,12 +5,16 @@ import React from 'react';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { Link, useParams } from 'react-router-dom';
+import { getLanguageName } from '../../LanguageName';
+
 const MovieDetails = () => {
   const { movieId } = useParams<{ movieId: string }>();
   const [movieDetails, setMovieDetails]: any = React.useState([]);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [castDetails, setCastDetails]: any = React.useState([]);
 
+  // fetch moviedetails and cast details
   React.useEffect(() => {
     fetch(
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
@@ -47,21 +51,30 @@ const MovieDetails = () => {
 
         <div className="movieDetails-section">
           <div className="moviedetails-container">
-            <p className="movie-tagline">{movieDetails.tagline}</p>
-            {/* <p className="movie-rating">{movieDetails.vote_average}</p> */}
+            <img
+              src={`${'https://image.tmdb.org/t/p/w500'}${
+                movieDetails.poster_path
+              }`}
+              className="moviedetail-img"
+            />
 
+            <h2 className="moviedetail-title">{movieDetails.title}</h2>
+            <p className="movie-tagline">{movieDetails.tagline}</p>
+            <p className="movie-rating">
+              {movieDetails.vote_average > 1
+                ? movieDetails.vote_average.toFixed(1)
+                : movieDetails.vote_average}{' '}
+            </p>
             <div className="length-ratings-container">
               <div className="inner-length-ratings-container">
                 <p className="heading">Length</p>
-                <p className="heading-data">
-                  {typeof movieDetails.runtime === 'number'
-                    ? `${movieDetails.runtime} mins`
-                    : 'N/A'}
-                </p>
+                <p className="heading-data">{movieDetails.runtime} mins</p>
               </div>
               <div className="inner-length-ratings-container">
                 <p className="heading">Language</p>
-                <p className="heading-data">{movieDetails.original_language}</p>
+                <p className="heading-data">
+                  {getLanguageName(movieDetails.original_language)}
+                </p>
               </div>{' '}
               <div className="inner-length-ratings-container">
                 <p className="heading">Year</p>
@@ -76,7 +89,6 @@ const MovieDetails = () => {
                 <p className="heading-data">{movieDetails.status}</p>
               </div>
             </div>
-
             <p className="movieDetails-header">Genre </p>
             <div className="movieDetails-genre-container">
               {Boolean(movieDetails.genres) &&
@@ -90,15 +102,18 @@ const MovieDetails = () => {
                   </Link>
                 ))}
             </div>
-            <img
-              src={`${'https://image.tmdb.org/t/p/w500'}${
-                movieDetails.poster_path
-              }`}
-              className="moviedetail-img"
-            />
-            <h2 className="moviedetail-title">{movieDetails.title}</h2>
+
             <p className="moviedetail-overview-container">Synopsis</p>
             <p className="moviedetail-overview">{movieDetails.overview}</p>
+
+            <p className="cast-details-container">Cast</p>
+            <div className="cast-details">
+              {castDetails.map((cast: any) => (
+                <Link className="cast" key={cast.id} to={`/person/${cast.id}`}>
+                  {cast.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

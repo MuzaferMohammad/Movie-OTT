@@ -14,7 +14,6 @@
 }
 
 .nav-bar-dashboard {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +38,7 @@
 }
 
 .nav-bar-dashboard img {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .nav-bar-link.active {

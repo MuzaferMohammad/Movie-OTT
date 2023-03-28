@@ -1,0 +1,251 @@
+.castDetailsPage-container {
+    background: #10141e;
+    background-size: 100%;
+    width: 100%;
+    padding: 2% 3% 2% 2%;
+    display: flex;
+    flex-direction: row;
+    height: 200vh;
+  }
+  
+  .homepage-container-movieDetails {
+    background: #10141e;
+    background-size: 100%;
+    width: 100vw;
+    padding: 2% 3% 2% 2%;
+    display: flex;
+    flex-direction: row;
+    height: 150vh;
+  }
+  
+  .castdetail-name {
+    position: absolute;
+    color: #ffffff;
+    top: 20%;
+    left: 50%;
+    font-weight: 500;
+    font-size: 40px;
+  }
+  
+  .castdetail-img {
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    width: 35%;
+  }
+
+ 
+.birth-details-container {
+    display: flex;
+    top: 220px;
+    position: absolute;
+    left: 50%;
+    gap: 1.5%;
+    width: 48%;
+  }
+  
+  .birth-details {
+    width: 40%;
+  }
+  
+  .heading1 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .heading-data1 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #ffffff;
+    width: 280px;
+  }
+
+  .castdetail-biography-container {
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .castdetail-biography {
+    position: absolute;
+    top: 490px;
+    left: 50%;
+    color: #ffffff;
+    width: 45%;
+    font-weight: 500;
+  }
+ 
+  .place-of-birth {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    color: #ffffff;
+    font-size: 26px;
+  }
+ 
+ 
+  .knownfor-container{
+    color:#ffffff;
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    width:20%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .known-for{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 50%;
+    gap: 10px;
+    position: absolute;
+    top: 350px;
+    left:49%;
+    font-size: 18px;
+    color: white;
+  }
+
+
+@media (max-width: 420px) {
+  .castDetailsPage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 220vh;
+    padding: 0;
+  }
+  .castdetail-name {
+    left: 5%;
+    font-size: 20px;
+    top: 65%;
+    font-weight: bold;
+  }
+
+  .castdetails-container {
+    height: auto;
+  }
+  .castdetail-img {
+    top: 12%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+  }
+  .castdetail-biography-container {
+    top: 95%;
+    left: 5%;
+    text-align: justify;
+  }
+
+  .castdetail-biography {
+    top: 100%;
+    left: 5%;
+    font-size: 14px;
+    width: 90%;
+  }
+  .birth-details-container {
+    top: 72%;
+    left: 5%;
+    font-size: 14px;
+    flex-direction: row;
+    gap: 55%;
+    width:40%;
+  }
+
+  .heading1 {
+    font-size: 16px;
+    line-height: 20px;
+    width:270%;
+  }
+
+  .heading-data1 {
+    font-size: 14px;
+    line-height: 20px;
+    width: 350%;
+  }
+ .knownfor-container{
+    top: 82%;
+    left: 5%;
+    font-size: 18px;
+    width: 50%;
+ }
+.known-for{
+    top: 85%;
+    left: 3%;
+    font-size: 14px;
+}
+}
+  
+@media (min-width: 420px) and (max-width: 770px) {
+    .castDetailsPage-container {
+      display: flex;
+      flex-direction: column-reverse;
+      height: 220vh;
+      padding: 0;
+    }
+    .castdetail-name {
+        left: 5%;
+        font-size: 30px;
+        top: 66%;
+    
+      }
+    
+      .castdetails-container {
+        height: auto;
+      }
+      .castdetail-img {
+        top: 12%;
+        left: 8%;
+        width: 85%;
+        height: 53%;
+      }
+      .castdetail-biography-container {
+        top: 95%;
+        left: 5%;
+        text-align: justify;
+        font-size: 24px;
+      }
+    
+      .castdetail-biography {
+        top: 100%;
+        left: 5%;
+        font-size: 18px;
+        width: 90%;
+      }
+      .birth-details-container {
+        top: 74%;
+        left: 5%;
+        font-size: 14px;
+        flex-direction: row;
+        gap: 55%;
+        width:40%;
+      }
+    
+      .heading1 {
+        font-size: 20px;
+        line-height: 20px;
+        width:270%;
+      }
+    
+      .heading-data1 {
+        position: absolute;
+        top: 40px;
+        font-size: 18px;
+      
+      }
+     .knownfor-container{
+        top: 84%;
+        left: 5%;
+        font-size: 24px;
+        width: 50%;
+     }
+    .known-for{
+        top: 86%;
+        left:4%;
+        font-size: 20px;
+    }
+}

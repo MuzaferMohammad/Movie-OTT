@@ -24,11 +24,12 @@ code {
 }
 
 .input-field-search-bar {
-  margin: 0% 20% 0% 1%;
-  width: 62%;
+  margin: 0% 10% 0% 1%;
+  width: 72%;
 }
 
 .search-input {
+  outline: none;
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
@@ -54,11 +55,13 @@ code {
   padding: 16px;
   gap: 8px;
   background: #5a6a90;
+  color: #fff;
   border: none;
   border-radius: 8px;
 }
 
 .search-button:disabled {
+  background: #5A6A90;
   opacity: 0.5;
 }
 

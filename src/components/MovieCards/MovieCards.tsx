@@ -48,17 +48,16 @@ export const MovieCards = ({
       id,
       genre,
       BookmarkIcon,
-      BookmarkOn,
-      BookmarkOff,
       isBookmarked: !isBookmarked, // toggle the bookmark status
     };
+    // get Bookmarks key from the localstorage
     let bookmarks = JSON.parse(localStorage.getItem('Bookmarks') ?? '[]');
     if (!isBookmarked) {
       bookmarks.push(movieCardData); // add the new bookmarked item
     } else {
       bookmarks = bookmarks.filter(
         (bookmark: { id: number }) => bookmark.id !== id,
-      ); // remove the un-bookmarked item
+      ); // remove the un-bookmarked item from the bookmarks
       window.location.reload();
     }
     localStorage.setItem('Bookmarks', JSON.stringify(bookmarks));

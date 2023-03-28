@@ -1,16 +1,10 @@
 import React from 'react';
 import logo from './assets/logo.svg';
-// import Dashboard from './assets/dashboardOff.svg';
 import homepage from './assets/homepage.svg';
-// import dashboardOff from './assets/dashboardOff.svg';
 import Movie from './assets/Movie.svg';
-// import movieOn from './assets/movieOn.svg';
 import TVSeries from './assets/TVSeries.svg';
-// import TVOff from './assets/TVOff.svg';
 import Bookmark from './assets/Bookmark.svg';
-// import bookmarkOn from './assets/bookmarkOn.svg';
 import Profile from './assets/Profile.svg';
-
 import './NavigationBar.css';
 import { useLocation } from 'react-router-dom';
 
@@ -18,19 +12,14 @@ export const NavigationBar = () => {
   const [isLoggingOut, setIsLoggingOut] = React.useState(false);
 
   const location = useLocation();
-  // const navigate = useNavigate();
 
+  // handle logout on profile icon click
   const handleProfileClick = () => {
     setIsLoggingOut(!isLoggingOut);
     if (window.confirm('Are you sure you want to log out?')) {
       localStorage.removeItem('userdata');
-      localStorage.removeItem('token');
-      // navigate('/');
       window.history.replaceState(null, '', '/');
       window.location.reload();
-      // window.addEventListener('popstate', function(event) {
-      // navigate('/');
-      // });
     }
   };
 

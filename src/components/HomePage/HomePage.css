@@ -8,10 +8,6 @@
   height: 390vh;
 }
 
-/* .navigation-bar-home {
-  
-  } */
-
 .no-underline {
   text-decoration: none;
 }
@@ -81,8 +77,6 @@
   grid-gap: 30px 4.5%;
   text-align: center;
   margin: 0 auto;
-  /* margin-right: 7%; */
-
 }
 
 .popular-movie-container {
@@ -104,7 +98,7 @@
   .homepage-container {
     display: flex;
     flex-direction: column-reverse;
-    height:390vh;
+    height:410vh;
     padding: 0;
   }
 
@@ -222,7 +216,7 @@
     left: 5%;
     /* display: flex; */
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px 1%;
+    grid-gap: 30px 1%;
     text-align: center;
     margin: 0 auto;
     width: 93%;
@@ -265,7 +259,6 @@
     margin-top: 2%;
     padding-left: 1%;
     display: none;
-    /* margin: 0; */
     width: 100%;
     gap: 10px;
   }
@@ -343,4 +336,5 @@
     text-align: center;
     margin: 0 auto;
   }
+
 }

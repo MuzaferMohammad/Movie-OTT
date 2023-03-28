@@ -1,25 +1,35 @@
-.tvgenre-list{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    position: absolute;
-    grid-gap:30px;
-    top: 150px;
-    width: 82%;
-    left: 180px;
+.tvgenre-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  grid-gap: 30px;
+  top: 150px;
+  width: 82%;
+  left: 180px;
 }
+
 @media (max-width: 420px) {
-    .tvgenre-list {
-        gap: 40px;
-        top: 120px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        background: #10141e;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    .tvserieslist{
-        padding: 10px;
-        width: 50%;
-    }
+  .tvgenre-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 5%;
+    width: 90%;
+    left: 5%;
+  }
+  .tvserieslist {
+    padding: 10px;
+    width: 50%;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 770px) {
+  .tvgenre-list {
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 3%;
+    text-align: center;
+    width: 90%;
+  }
 }

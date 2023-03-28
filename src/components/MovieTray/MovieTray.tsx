@@ -1,17 +1,15 @@
 import React from 'react';
-// import { data } from '../../MovieData';
 import './MovieTray.css';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BookmarkIcon from '../MovieCards/assets/BookmarkIcon.svg';
 import { MovieCard } from '../MovieCards/MovieCards.stories';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
 
 export const MovieTray = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [movies, setMovies] = React.useState([]);
 
+  // get trending movies
   React.useEffect(() => {
     axios
       .get(
@@ -33,8 +31,7 @@ export const MovieTray = () => {
         interval={5000}
         stopOnHover
       >
-        {movies.map((movie: any, index: number) => (
-          // <Link to={`/movies/${movie.id as number}`} key={movie.id} className='no-underline'>
+        {movies.map((movie: any) => (
           <div key={movie.id}>
             <MovieCard
               {...movie}
@@ -42,8 +39,7 @@ export const MovieTray = () => {
               genre="movies"
               // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-              title={movie.title || movie.name}
+              title={movie.title}
               category={'Movie'}
               BookmarkIcon={BookmarkIcon}
               year={
@@ -53,7 +49,6 @@ export const MovieTray = () => {
               }
             />
           </div>
-          //  </Link>
         ))}
       </Carousel>
     </div>

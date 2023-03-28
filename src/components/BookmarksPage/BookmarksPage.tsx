@@ -2,7 +2,6 @@ import React from 'react';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { MovieCards, MovieCardInterface } from '../MovieCards/MovieCards';
-import BookmarkOn from '../MovieCards/assets/BookmarkOn.svg';
 import './BookmarksPage.scss';
 
 export const BookmarksPage = () => {
@@ -11,12 +10,9 @@ export const BookmarksPage = () => {
   >([]);
 
   React.useEffect(() => {
-    const bookmarkedMoviesData = JSON.parse(
+    const bookmarkedMovies = JSON.parse(
       localStorage.getItem('Bookmarks') ?? '[]',
     );
-    const bookmarkedMovies = bookmarkedMoviesData.map((movie: any) => {
-      return { ...movie, isBookmarked: true, BookmarkIcon: BookmarkOn };
-    });
     setBookmarkedMovies(bookmarkedMovies);
   }, []);
   console.log(bookmarkedMovies);
