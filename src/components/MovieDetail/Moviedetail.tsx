@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/promise-function-async */
 import './Moviedetail.css';
 import React from 'react';
@@ -10,15 +11,15 @@ import { getLanguageName } from '../../LanguageName';
 const MovieDetails = () => {
   const { movieId } = useParams<{ movieId: string }>();
   const [movieDetails, setMovieDetails]: any = React.useState([]);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [castDetails, setCastDetails]: any = React.useState([]);
+
+  const apiKey = process.env.REACT_APP_OTT_API_KEY;
 
   // fetch moviedetails and cast details
   React.useEffect(() => {
     fetch(
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=0ddfe6bb88aaddb93e21726fd865a9dd&language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`,
     )
       .then((response) => response.json())
       .then((data) => {
@@ -29,7 +30,7 @@ const MovieDetails = () => {
         console.error(error);
       });
     fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0ddfe6bb88aaddb93e21726fd865a9dd&language=en-US`,
+      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US`,
     )
       .then((response) => response.json())
       .then((data) => {

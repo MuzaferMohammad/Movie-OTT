@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import './SearchResult.css';
 import { MovieCards } from '../MovieCards/MovieCards';
@@ -23,10 +24,12 @@ export const SearchResult = () => {
 
   const { searchQuery } = useParams<{ searchQuery: string }>();
 
+  const apiKey = process.env.REACT_APP_OTT_API_KEY;
+
   React.useEffect(() => {
     fetch(
       // eslint-disable-next-line @typescript-eslint/no-base-to-string, @typescript-eslint/restrict-template-expressions
-      `https://api.themoviedb.org/3/search/multi?query=${searchQuery}&api_key=13622fc50c5257d370284ea008163f90`,
+      `https://api.themoviedb.org/3/search/multi?query=${searchQuery}&api_key=${apiKey}`,
     )
       // eslint-disable-next-line @typescript-eslint/promise-function-async
       .then((response) => response.json())
@@ -36,7 +39,7 @@ export const SearchResult = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [searchQuery, results, navigate]);
+  }, [searchQuery, results, apiKey]);
 
   // console.log(results);
 
@@ -54,12 +57,15 @@ export const SearchResult = () => {
       item.media_type !== 'movie' &&
       item.poster_path !== null,
   );
+
   const filteredResultLength = movieResults.length + tvResults.length;
+
   if (filteredResultLength === 0) {
     navigate('/no-results');
   }
+
   return (
-    <div className="homepage-container">
+    <div className="search-results-page-container">
       <NavigationBar />
       <div className="main-page-container">
         <div className="greeting-container"></div>
@@ -68,7 +74,7 @@ export const SearchResult = () => {
         </div>
         {filteredResultLength > 0 && (
           <p className="result-message">
-            Found {filteredResultLength} results for ‘{searchQuery}’
+            Found {filteredResultLength} results for '{searchQuery}'
           </p>
         )}
         <div className="search-results-container">

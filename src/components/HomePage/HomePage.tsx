@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React from 'react';
 import { NavigationBar } from '../NavigationBar/NavigationBar';
 import BookmarkIcon from '../MovieCards/assets/BookmarkIcon.svg';
@@ -12,6 +13,8 @@ export const HomePage = () => {
   const userData = localStorage.getItem('userdata');
 
   const [populourMovies, setPopulourMovies] = React.useState([]);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [totalPages, setTotalPages] = React.useState(1);
 
   const navigate = useNavigate();
   // console.log(userData);
@@ -22,18 +25,31 @@ export const HomePage = () => {
   }, [navigate, userData]);
 
   // fetch popular movies
-  React.useEffect(() => {
+  const apiKey = process.env.REACT_APP_OTT_API_KEY;
+  const getPopularMovies = (page: number) => {
     axios
       .get(
-        ` https://api.themoviedb.org/3/movie/popular?api_key=0ddfe6bb88aaddb93e21726fd865a9dd&language=en-US&page=1`,
+        ` https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1&page=${page}`,
       )
-      .then(({ data: { results } }) => {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      .then(({ data: { results, total_pages } }) => {
         setPopulourMovies(results);
+        setTotalPages(total_pages); // Update the totalPages state with the total number of pages returned by the API
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
+
+  // fetch popular movies on component mount
+  React.useEffect(() => {
+    getPopularMovies(currentPage);
+  }, [currentPage]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="homepage-container">
@@ -49,6 +65,7 @@ export const HomePage = () => {
           </div>
         </div>
         <div className="movie-tray-container">
+          {/* Carousel for trending movies */}
           <MovieTray />
         </div>
         <div className="popular-movie-container">
@@ -67,15 +84,44 @@ export const HomePage = () => {
                 genre="movies"
                 // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                 poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-                title={movie.title || movie.name}
+                title={movie.title}
                 BookmarkIcon={BookmarkIcon}
-                year={movie.release_date.substring(0, 4)}
+                year={
+                  typeof movie.release_date === 'string'
+                    ? movie.release_date.substring(0, 4)
+                    : 'N/A'
+                }
                 category={'Movie'}
               />
             </div>
           ))}
         </div>
+        {totalPages > 1 && ( // If there is more than one page of results, render the pagination component
+          <div className="pagination">
+            {[...Array(Math.min(totalPages, 5))].map((_, i) => {
+              // Render up to 5 pagination buttons, or the total number of pages, whichever is smaller
+
+              const pageNumber = i + 1; // Calculate the page number for the button
+              const isCurrentPage = pageNumber === currentPage;
+              // Determine if the button represents the current page
+              // console.log(isCurrentPage);
+
+              return (
+                <button
+                  value="page"
+                  key={pageNumber}
+                  className={`pagination__button ${
+                    isCurrentPage ? 'active' : ''
+                  }`}
+                  onClick={() => handlePageChange(pageNumber)}
+                  // Call the handlePageChange function when the button is clicked
+                >
+                  {pageNumber}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

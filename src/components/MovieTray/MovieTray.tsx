@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import React from 'react';
 import './MovieTray.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -9,12 +10,11 @@ import axios from 'axios';
 export const MovieTray = () => {
   const [movies, setMovies] = React.useState([]);
 
+  const apiKey = process.env.REACT_APP_OTT_API_KEY;
   // get trending movies
   React.useEffect(() => {
     axios
-      .get(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=0ddfe6bb88aaddb93e21726fd865a9dd`,
-      )
+      .get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`)
       .then(({ data: { results } }) => {
         setMovies(results);
       })
