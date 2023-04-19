@@ -13,49 +13,6 @@
     color: #ffffff;
   }
   
-  /* .inputContainer {
-    position: relative;
-  }
-  
-  .inputNumberOfPeople input:focus {
-    outline: none;
-    border: 2px solid var(--base-green);
-    top: 72px;
-  }
-  
-  .inputNumberOfPeople label {
-    color: var(--text-color);
-    display: inline-block;
-    font-weight: 700;
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    margin-left: 0px;
-  }
-  
-  .imageContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 24px;
-    height: 100%;
-  }
-  
-  .error {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--error);
-  }
-  
-  .errorClasses input:focus {
-    border-color: var(--error);
-  } */
   .error-message{
     color: red;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MovieGenreList } from './MoviegenreList';
+import { BrowserRouter } from 'react-router-dom';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -14,7 +15,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof MovieGenreList> = (args) => (
-  <MovieGenreList />
+  <BrowserRouter>
+    <MovieGenreList />
+  </BrowserRouter>
 );
 
 export const Default = Template.bind({});

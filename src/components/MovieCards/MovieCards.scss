@@ -16,6 +16,7 @@
 &__movie-data {
   display: flex;
   gap: 10px;
+  opacity: 0.8;
 
 p {
   font-style: normal;
@@ -53,7 +54,7 @@ p {
   background-color: transparent;
   border-radius: 10px;
   border: none;
-  margin-left: 22%;
+  margin-left: 24%;
   // margin-left: 290px;
   margin-top: 20px;
 }
@@ -88,7 +89,7 @@ p {
   }
 
   &__bookmark-button {
-    margin-left: 80%;
+    margin-left: 84%;
   }
 }
 
@@ -162,7 +163,7 @@ p {
 }
 
 .movie-cards-carousel{
-  height: 250px;
+  height: 235px;
 
   a {
     width: 90%;
@@ -188,6 +189,32 @@ p {
   &__bookmark-button img {
     width: 30px;
     height: 30px;
+  }
+
+  &__movie-data {
+    display: flex;
+    gap: 7px;
+
+
+   p {
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+  }
+
+  &__dot-icon {
+    width: 3px;
+    height: 3px;
+  }
+
+  }
+
+    &__title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #ffffff;
+    text-align: start;
   }
 }
 }

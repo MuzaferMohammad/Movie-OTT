@@ -5,8 +5,9 @@
   padding: 2% 3% 2% 2%;
   display: flex;
   flex-direction: row;
-  height: 390vh;
+  height: 420vh;
 }
+
 
 .no-underline {
   text-decoration: none;
@@ -41,7 +42,31 @@
   border-radius: 8px;
   justify-content: center;
 }
+.pagination-container {
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  justify-content: center;
+}
+.pagination-button {
+  background: #171e31;
+  color: #f0e6e6;
+  border: none;
+  width: 3.5%;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  height: 8%;
+  position: relative;
+  top: 840px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.pagination-button:focus {
+  background-color: #f0e6e6;
+  color: #10141e;
+}
 .movie-box p {
   font-weight: 400;
   font-size: 14px;
@@ -70,20 +95,22 @@
 
 .popular-moviecard-container {
   position: absolute;
-  top: 77%;
+  top: 83%;
   left: 11%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px 4.5%;
+  grid-gap: 20px;
   text-align: center;
   margin: 0 auto;
+  width:85%;
+
 }
 
 .popular-movie-container {
   display: flex;
   gap: 16px;
   position: absolute;
-  top: 67%;
+  top: 72%;
   left: 11%;
   text-align: center;
   margin: 0 auto;
@@ -98,7 +125,7 @@
   top: 380vh;
   align-items: center;
   gap: 3%;
-  width: 95%;
+  width: 97%;
   display: flex;
   position: absolute;
   justify-content: center;
@@ -112,23 +139,23 @@
   border-radius: 0.625rem;
   font-size: 1rem;
   height: 7vh;
-  }
+}
 
-  .pagination__button.active {
-    background-color: #f0e6e6;
-    color: #10141e;
-  }
+.pagination__button.active {
+  background-color: #f0e6e6;
+  color: #10141e;
+}
 
-  .pagination__button:hover {
-    background-color: #f0e6e6;
-    color: #10141e;
-  }
+.pagination__button:hover {
+  background-color: #f0e6e6;
+  color: #10141e;
+}
 
 @media (max-width: 420px) {
   .homepage-container {
     display: flex;
     flex-direction: column-reverse;
-    height:410vh;
+    height: 410vh;
     padding: 0;
   }
 
@@ -178,7 +205,7 @@
   .search-button-container {
     display: flex;
     margin-left: 4%;
-    }
+  }
 
   .search-bar-container {
     width: 95%;
@@ -266,12 +293,12 @@
     margin-top: 30%;
     gap: 5%;
   }
-  
+
   .pagination__button {
     width: 5%;
     border-radius: 0.3rem;
     height: 3vh;
-    }
+  }
 }
 
 @media (min-width: 420px) and (max-width: 770px) {
@@ -386,5 +413,5 @@
     width: 5%;
     border-radius: 0.3rem;
     height: 3vh;
-    }
+  }
 }

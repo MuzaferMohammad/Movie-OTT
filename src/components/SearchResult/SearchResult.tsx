@@ -45,21 +45,20 @@ export const SearchResult = () => {
 
   localStorage.setItem('searchInput', JSON.stringify(searchQuery));
 
+  // filter movies from the results
   const movieResults = results.filter(
-    (item) =>
-      item.media_type !== 'person' &&
-      item.media_type !== 'tv' &&
-      item.poster_path !== null,
-  );
-  const tvResults = results.filter(
-    (item) =>
-      item.media_type !== 'person' &&
-      item.media_type !== 'movie' &&
-      item.poster_path !== null,
+    (item) => item.media_type === 'movie' && item.poster_path !== null,
   );
 
+  // filter tv series from the results
+  const tvResults = results.filter(
+    (item) => item.media_type === 'tv' && item.poster_path !== null,
+  );
+
+  // calculate total length of filtered movies and tv series
   const filteredResultLength = movieResults.length + tvResults.length;
 
+  // navigate to no-results page if filteredResultLength is equal to zero
   if (filteredResultLength === 0) {
     navigate('/no-results');
   }
@@ -85,7 +84,7 @@ export const SearchResult = () => {
               key={result.id}
               id={result.id}
               className="movie-cards"
-              poster={`${'https://image.tmdb.org/t/p/w500'}${
+              poster={`${'https://www.themoviedb.org/t/p/w355_and_h200_multi_faces'}${
                 // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                 result.poster_path
               }`}

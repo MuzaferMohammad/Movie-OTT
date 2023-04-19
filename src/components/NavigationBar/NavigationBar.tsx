@@ -38,7 +38,7 @@ export const NavigationBar = () => {
                 : 'homeIcon'
             }`}
           />
-        </a>{' '}
+        </a>
         <a href="/movie-genres" className="nav-bar-dashboard">
           <img
             src={Movie}
@@ -46,7 +46,7 @@ export const NavigationBar = () => {
               location.pathname === '/movie-genres' ? 'active' : ''
             }`}
           />
-        </a>{' '}
+        </a>
         <a href="/TVGenre" className="nav-bar-dashboard">
           <img
             src={TVSeries}
@@ -54,7 +54,7 @@ export const NavigationBar = () => {
               location.pathname === '/TVGenre' ? 'active' : ''
             }`}
           />
-        </a>{' '}
+        </a>
         <a href="/bookmarks" className="nav-bar-dashboard">
           <img
             src={Bookmark}
@@ -62,7 +62,7 @@ export const NavigationBar = () => {
               location.pathname === '/bookmarks' ? 'active' : ''
             }`}
           />
-        </a>{' '}
+        </a>
       </section>
       <button onClick={handleProfileClick} className="nav-bar-profile">
         <img src={Profile} />

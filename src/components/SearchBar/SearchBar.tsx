@@ -21,7 +21,7 @@ export const SearchBar = ({ placeholder }: SearchBarInterface) => {
   const navigate = useNavigate();
 
   function handleSearchInput(event: React.ChangeEvent<HTMLInputElement>) {
-    const regexForFullName = /^[A-Za-z0-9\s]*$/;
+    const regexForFullName = /^[A-Za-z0-9][A-Za-z0-9\s]*$/;
     if (
       event.target.value === '' ||
       regexForFullName.test(event.target.value)

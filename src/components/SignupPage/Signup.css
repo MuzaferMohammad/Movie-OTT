@@ -31,7 +31,9 @@
   height: 100vh;
   background: linear-gradient(124.99deg, #130908 -2.55%, rgba(19, 9, 8, 0) -2.55%, #370C0F 100%), url('../SignupPage/background-img.png');
   background-size:100%;
-  padding:10px 450px 10px 450px;
+  /* padding:10px 450px 10px 450px; */
+  padding:10px 28% 10px;
+
 }
 
 .inputText-container h1{

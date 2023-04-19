@@ -10,6 +10,8 @@ export const BookmarksPage = () => {
   >([]);
 
   React.useEffect(() => {
+    // get the value of the 'Bookmarks' key from localStorage
+    //  If the value is not found set it as an empty array ([]).
     const bookmarkedMovies = JSON.parse(
       localStorage.getItem('Bookmarks') ?? '[]',
     );
@@ -30,7 +32,10 @@ export const BookmarksPage = () => {
         </div>
         <div className="bookmarkPage-container__moviecard-container">
           {bookmarkedMovies.map((movie) => (
-            <div key={movie.id}>
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            <div key={movie.id} id={`bookmark-${movie.id}`}>
+              {/* map over the bookmarkedMovies array and create a MovieCard component for
+          each item in the array */}
               <MovieCards {...movie} className="movie-cards-bookmarks" />{' '}
             </div>
           ))}

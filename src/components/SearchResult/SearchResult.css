@@ -12,9 +12,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   position: absolute;
-  grid-gap: 20px 7%;
+  grid-gap: 20px 2%;
   top: 180px;
-  width: 82%;
+  width: 84%;
   left: 11%;
   margin-right: 7%;
 }

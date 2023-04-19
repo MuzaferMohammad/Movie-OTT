@@ -14,7 +14,9 @@ export const MovieTray = () => {
   // get trending movies
   React.useEffect(() => {
     axios
-      .get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`)
+      .get(
+        `https://api.themoviedb.org/3/trending/movie/day?page=4&api_key=${apiKey}`,
+      )
       .then(({ data: { results } }) => {
         setMovies(results);
       })
@@ -38,7 +40,7 @@ export const MovieTray = () => {
               className="movie-cards-carousel"
               genre="movies"
               // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-              poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              poster={`https://www.themoviedb.org/t/p/w355_and_h200_multi_faces/${movie.poster_path}`}
               title={movie.title}
               category={'Movie'}
               BookmarkIcon={BookmarkIcon}

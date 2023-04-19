@@ -19,11 +19,6 @@ export const SignInPage = () => {
     setPassword(event.target.value);
   }
 
-  const userdata = {
-    username: email,
-    password: password,
-  };
-
   function handleSignInClick() {
     setSignInError('');
     // Make API call to sign in the user
@@ -33,8 +28,8 @@ export const SignInPage = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        identifier: userdata.username,
-        password: userdata.password,
+        identifier: email,
+        password: password,
       }),
     })
       .then((response) => {

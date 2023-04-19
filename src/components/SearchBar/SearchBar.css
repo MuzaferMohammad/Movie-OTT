@@ -39,7 +39,7 @@ code {
   background: #10141e;
   border: none;
   width: 100%;
-  padding: 1.5% 0% 0.3% 3%;
+  padding: 1% 0% 0.3% 3%;
 }
 
 .search-input::placeholder {
@@ -52,7 +52,7 @@ code {
 }
 
 .search-button {
-  padding: 16px;
+  padding: 14px 16px;
   gap: 8px;
   background: #5a6a90;
   color: #fff;
@@ -86,7 +86,7 @@ code {
     color: #fff;
     border: none;
     width: 100%;
-    padding: 3% 1% 0.3% 3%;
+    padding: 2% 1% 0.3% 3%;
   }
 
   .search-input::placeholder {

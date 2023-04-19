@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { BrowserRouter } from 'react-router-dom';
 import { BookmarksPage } from './BookmarksPage';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -13,7 +13,9 @@ const meta = {
 export default meta;
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof BookmarksPage> = (args) => (
-  <BookmarksPage />
+  <BrowserRouter>
+    <BookmarksPage />
+  </BrowserRouter>
 );
 
 export const BookmarksPages = Template.bind({});

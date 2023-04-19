@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TVGenre from './TVgenre';
+import { BrowserRouter } from 'react-router-dom';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -13,7 +14,11 @@ export default {
 } as ComponentMeta<typeof TVGenre>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof TVGenre> = (args) => <TVGenre />;
+const Template: ComponentStory<typeof TVGenre> = (args) => (
+  <BrowserRouter>
+    <TVGenre />
+  </BrowserRouter>
+);
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

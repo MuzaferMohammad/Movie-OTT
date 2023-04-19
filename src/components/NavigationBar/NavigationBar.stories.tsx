@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { NavigationBar } from './NavigationBar';
+import { BrowserRouter } from 'react-router-dom';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -12,7 +13,11 @@ const meta = {
 } as ComponentMeta<typeof NavigationBar>;
 export default meta;
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof NavigationBar> = () => <NavigationBar />;
+const Template: ComponentStory<typeof NavigationBar> = () => (
+  <BrowserRouter>
+    <NavigationBar />
+  </BrowserRouter>
+);
 
 export const NavigationBars = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
