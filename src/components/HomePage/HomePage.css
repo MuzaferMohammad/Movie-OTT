@@ -1,0 +1,417 @@
+.homepage-container {
+  background: #10141e;
+  background-size: 100%;
+  width: 100vw;
+  padding: 2% 3% 2% 2%;
+  display: flex;
+  flex-direction: row;
+  height: 420vh;
+}
+
+
+.no-underline {
+  text-decoration: none;
+}
+
+.main-page-container {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.search-bar-container-home {
+  width: 100%;
+  margin-top: 2%;
+  margin-left: 3%;
+}
+
+.trending-text {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 60px;
+  color: #ffffff;
+}
+
+.movie-box {
+  display: flex;
+  box-sizing: border-box;
+  width: 80px;
+  height: 32px;
+  border: 2px solid #f0e6e6;
+  border-radius: 8px;
+  justify-content: center;
+}
+.pagination-container {
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  justify-content: center;
+}
+.pagination-button {
+  background: #171e31;
+  color: #f0e6e6;
+  border: none;
+  width: 3.5%;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  height: 8%;
+  position: relative;
+  top: 840px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.pagination-button:focus {
+  background-color: #f0e6e6;
+  color: #10141e;
+}
+.movie-box p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.trending-container {
+  display: flex;
+  gap: 16px;
+  position: absolute;
+  top: 18%;
+  left: 11%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.movie-tray-container {
+  top: 27%;
+  position: absolute;
+  left: 11%;
+  width: 85%;
+}
+
+.popular-moviecard-container {
+  position: absolute;
+  top: 83%;
+  left: 11%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  text-align: center;
+  margin: 0 auto;
+  width:85%;
+
+}
+
+.popular-movie-container {
+  display: flex;
+  gap: 16px;
+  position: absolute;
+  top: 72%;
+  left: 11%;
+  text-align: center;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.greeting-container {
+  display: none;
+}
+
+.pagination {
+  top: 380vh;
+  align-items: center;
+  gap: 3%;
+  width: 97%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+}
+
+.pagination__button {
+  background: #171e31;
+  color: #f0e6e6;
+  border: none;
+  width: 3%;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  height: 7vh;
+}
+
+.pagination__button.active {
+  background-color: #f0e6e6;
+  color: #10141e;
+}
+
+.pagination__button:hover {
+  background-color: #f0e6e6;
+  color: #10141e;
+}
+
+@media (max-width: 420px) {
+  .homepage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 410vh;
+    padding: 0;
+  }
+
+  .main-page-container {
+    display: flex;
+    margin-top: 4%;
+    margin-left: 3%;
+    width: 97%;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .greeting-container {
+    margin-top: 2%;
+    padding-left: 1%;
+    display: flex;
+    /* margin: 0; */
+    width: 100%;
+    gap: 10px;
+  }
+
+  .greeting-container img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .greeting-container p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ed4e4e;
+  }
+
+  .search-bar-container-home {
+    margin-top: 2%;
+    /* margin-left: 1%; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-button-container {
+    display: flex;
+    margin-left: 4%;
+  }
+
+  .search-bar-container {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .search-bar-container img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .input-field-search-bar {
+    margin: 0;
+    width: 65%;
+  }
+
+  .trending-text {
+    font-weight: 300;
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  .movie-box {
+    display: flex;
+    box-sizing: border-box;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #f0e6e6;
+    border-radius: 4px;
+    justify-content: center;
+  }
+
+  .movie-box p {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.07em;
+    color: #ffffff;
+  }
+
+  .trending-container {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .movie-tray-container {
+    top: 18%;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+  }
+
+  .popular-moviecard-container {
+    position: absolute;
+    top: 57%;
+    left: 5%;
+    /* display: flex; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px 1%;
+    text-align: center;
+    margin: 0 auto;
+    width: 93%;
+  }
+
+  .popular-movie-container {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .pagination {
+    margin-top: 30%;
+    gap: 5%;
+  }
+
+  .pagination__button {
+    width: 5%;
+    border-radius: 0.3rem;
+    height: 3vh;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 770px) {
+  .homepage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 420vh;
+    padding: 0;
+  }
+
+  .main-page-container {
+    display: flex;
+    margin-top: 4%;
+    margin-left: 3%;
+    width: 97%;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .greeting-container {
+    margin-top: 2%;
+    padding-left: 1%;
+    display: none;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .greeting-container img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .greeting-container p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ed4e4e;
+  }
+
+  .trending-text {
+    font-weight: 300;
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  .movie-box {
+    display: flex;
+    box-sizing: border-box;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #f0e6e6;
+    border-radius: 4px;
+    justify-content: center;
+  }
+
+  .movie-box p {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.07em;
+    color: #ffffff;
+  }
+
+  .trending-container {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .movie-tray-container {
+    top: 18%;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+  }
+
+  .popular-moviecard-container {
+    position: absolute;
+    top: 57%;
+    left: 5%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 3%;
+    text-align: center;
+    width: 90%;
+  }
+
+  .popular-movie-container {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .pagination {
+    margin-top: 30%;
+    gap: 5%;
+  }
+
+  .pagination__button {
+    width: 5%;
+    border-radius: 0.3rem;
+    height: 3vh;
+  }
+}

@@ -1,0 +1,504 @@
+.seriesDetailsPage-container {
+  background: #10141e;
+  background-size: 100%;
+  width: 100%;
+  padding: 2% 3% 2% 2%;
+  display: flex;
+  flex-direction: row;
+  height: 300vh;
+}
+
+.homepage-container-movieDetails {
+  background: #10141e;
+  background-size: 100%;
+  width: 100vw;
+  padding: 2% 3% 2% 2%;
+  display: flex;
+  flex-direction: row;
+  height: 150vh;
+}
+
+.seriesdetail-title {
+  position: absolute;
+  color: #ffffff;
+  top: 20%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.moviedetail-img {
+  position: absolute;
+  top: 20%;
+  left: 12%;
+  width: 35%;
+}
+.series-tagline {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  color: #ffffff;
+}
+.series-rating {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.seriesdetail-overview-container {
+  position: absolute;
+  top: 570px;
+  left: 50%;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.seriesdetail-overview {
+  position: absolute;
+  top: 600px;
+  left: 50%;
+  color: #ffffff;
+  width: 45%;
+  font-weight: 500;
+}
+.moviedetail-lang-container {
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  color: #ffffff;
+  font-size: 20px;
+}
+.moviedetail-lang {
+  position: absolute;
+  top: 320px;
+  left: 750px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.moviedetail-year-container {
+  position: absolute;
+  top: 280px;
+  left: 900px;
+  color: #ffffff;
+  font-size: 20px;
+}
+.moviedetail-year {
+  position: absolute;
+  top: 320px;
+  left: 900px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.seriesDetails-section {
+  width: 100%;
+  height: 100vh;
+}
+.moviedetail-genre-container {
+  position: absolute;
+  color: white;
+  top: 400px;
+  left: 700px;
+}
+ .seriesDetails-header{
+  position: absolute;
+  color: white;
+  left: 50%;
+  top:420px;
+  font-size: 20px;
+  font-weight: bold;
+} 
+.seriesDetails-genre-container{
+  position: absolute;
+  top:460px;
+  left:50%;
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+}
+.genres-list{
+  color: black;
+  text-decoration: none;
+  padding:8px;
+  border:1px solid white;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.moviedetail-genre {
+  position: absolute;
+}
+
+.genres-list {
+  display: flex;
+  gap: 20px;
+  top: 420px;
+  left: 700px;
+}
+
+.moviedetail-ratings-container {
+  position: absolute;
+  top: 270px;
+  left: 50%;
+  color: #ffffff;
+  font-size: 35px;
+}
+
+.length-ratings-container {
+  display: flex;
+  top: 320px;
+  position: absolute;
+  left: 50%;
+  gap: 1.5%;
+  width: 45%;
+}
+
+.inner-length-ratings-container {
+  width: 25%;
+}
+
+.heading {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heading-data {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  color: #ffffff;
+  width: 150px;
+}
+.cast-details-container{
+  color:#ffffff;
+  position: absolute;
+  top: 760px;
+  left: 50%;
+  width:20%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.cast-details{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 50%;
+  gap: 10px;
+  position: absolute;
+  top: 800px;
+  left:49%;
+}
+.cast{
+  padding:5px;
+  border:1px solid white;
+  border-radius:10px;
+  color:white;
+  text-decoration: none;
+}
+
+@media (max-width: 420px) {
+  .seriesDetailsPage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height:340vh;
+    padding: 0;
+  }
+
+  .seriesdetail-title {
+    left: 5%;
+    font-size: 18px;
+    top: 65%;
+  }
+
+  .seriesdetails-container {
+    height: auto;
+  }
+  .moviedetail-img {
+    top: 12%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+  }
+
+  .series-tagline {
+    top: 70%;
+    left: 5%;
+    font-size: 14px;
+  }
+
+  .seriesdetail-overview-container {
+    top: 105%;
+    left: 5%;
+    text-align: justify;
+  }
+
+  .seriesdetail-overview {
+    top: 110%;
+    left: 5%;
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .moviedetail-lang-container {
+    top: 70%;
+    left: 5%;
+    font-size: 16px;
+  }
+
+  .moviedetail-lang {
+    top: 75%;
+    left: 5%;
+    font-weight: bold;
+  }
+
+  .moviedetail-year-container {
+    top: 70%;
+    left: 50%;
+    font-size: 16px;
+    transform: translateX(-50%);
+  }
+
+  .moviedetail-year {
+    top: 75%;
+    left: 50%;
+    font-weight: bold;
+    transform: translateX(-50%);
+  }
+
+  .moviedetail-genre-container {
+    top: 80%;
+    left: 5%;
+  }
+  .series-rating{
+    top: 75%;
+    left: 5%;
+    font-size: 18px;
+    
+  }
+
+  .genres-list {
+    top: 85%;
+    left: 5%;
+    padding:5px 12px;
+  }
+
+  .moviedetail-genre {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .moviedetail-ratings-container {
+    top: 30%;
+    left: 5%;
+    font-size: 24px;
+  }
+
+  .length-ratings-container {
+    top: 80%;
+    left: 5%;
+    font-size: 14px;
+    flex-direction: row;
+    gap: 35%;
+    width:40%;
+  }
+
+  .heading {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .heading-data {
+    font-size: 14px;
+    line-height: 20px;
+    width: 70px;
+  }
+
+  .cast-details-container{
+    top: 130%;
+    left: 5%;
+    position: absolute;
+  }
+    .cast-details {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      gap: 10px;
+      position: absolute;
+      top: 135%;
+      left: 3%;
+      width: 90%;
+  }
+  .seriesDetails-header{
+    top: 90%;
+    left: 5%;
+    position: absolute;
+  }
+  .seriesDetails-genre-container{
+    top: 96%;
+    left: 5%;
+    position: absolute;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:6px;
+
+  }
+}
+
+@media (min-width: 420px) and (max-width: 770px) {
+  .seriesDetailsPage-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 410vh;
+    padding: 0;
+  }
+  .seriesdetail-title {
+    left: 5%;
+    top: 65%;
+  }
+
+  .seriesdetails-container {
+    height: auto;
+  }
+  .moviedetail-img {
+    top: 12%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+  }
+
+  .series-tagline {
+    top: 72%;
+    left: 5%;
+    font-size: 18px;
+  }
+
+  .seriesdetail-overview-container {
+    top: 105%;
+    left: 5%;
+    text-align: justify;
+  }
+
+  .seriesdetail-overview {
+    top: 110%;
+    left: 5%;
+    font-size: 18px;
+    width: 90%;
+  }
+
+  .moviedetail-lang-container {
+    top: 70%;
+    left: 5%;
+    font-size: 18px;
+  }
+
+  .moviedetail-lang {
+    top: 75%;
+    left: 5%;
+    font-weight: bold;
+  }
+
+  .moviedetail-year-container {
+    top: 70%;
+    left: 50%;
+    font-size: 18px;
+    transform: translateX(-50%);
+  }
+
+  .moviedetail-year {
+    top: 75%;
+    left: 50%;
+    font-weight: bold;
+    transform: translateX(-50%);
+  }
+
+  .moviedetail-genre-container {
+    top: 80%;
+    left: 5%;
+  }
+  .series-rating{
+    top: 76%;
+    left: 5%;
+    font-size: 24px;
+    
+  }
+
+  .genres-list {
+    top: 85%;
+    left: 5%;
+    padding:5px 12px;
+  }
+
+  .moviedetail-genre {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .moviedetail-ratings-container {
+    top: 30%;
+    left: 5%;
+    font-size: 24px;
+  }
+
+  .length-ratings-container {
+    top: 82%;
+    left: 5%;
+    font-size: 20px;
+    flex-direction: row;
+    gap: 35%;
+    width:45%;
+  }
+
+  .heading {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .heading-data {
+    font-size: 16px;
+    line-height: 20px;
+    width: 70px;
+    position: absolute;
+    top:30px;
+    
+  }
+
+  .cast-details-container{
+    top: 128%;
+    left: 5%;
+    position: absolute;
+  }
+    .cast-details {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      gap: 10px;
+      position: absolute;
+      top: 132%;
+      left: 3%;
+      width: 90%;
+  }
+  .seriesDetails-header{
+    top: 92%;
+    left: 5%;
+    position: absolute;
+  }
+  .seriesDetails-genre-container{
+    top: 96%;
+    left: 5%;
+    position: absolute;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:6px;
+  }
+}

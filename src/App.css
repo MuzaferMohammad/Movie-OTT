@@ -1,0 +1,47 @@
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+.App-container {
+  width: 100vw;
+}
+
+.App-container .carousel .slide {
+  min-width: 28%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+}
+.App-container .carousel .slider.animated{
+  gap: 6.5%;
+}
+/* .carousel .slide{min-width:350px;margin:0;position:relative;text-align:center} */
+@media (max-width:420px){
+
+  .App-container .carousel .slide {
+  min-width: 50%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+}
+
+.App-container .carousel .slider.animated{
+  gap: 2%;
+}
+
+.carousel.carousel-slider .control-arrow {
+  font-size: 26px;
+  margin-top: 40px;
+  padding: 0px;
+}
+}
+
+@media (min-width: 420px) and (max-width: 768px){
+  .App-container .carousel .slide {
+  min-width: 45%;
+}
+}

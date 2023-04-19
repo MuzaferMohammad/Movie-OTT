@@ -4,6 +4,9 @@
 /.pnp
 .pnp.js
 
+# api keys
+.env
+
 # testing
 /coverage
 
@@ -207,3 +210,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+# Local Netlify folder
+.netlify
